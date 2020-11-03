@@ -1,8 +1,8 @@
 # Site
 title:              Zae Myung KIM
-bio:                'An NLP researcher interested in machine translation and multilinguality.'
+bio:                'An NLP researcher interested in MT and multilinguality'
 reading_time:       true
-words_per_minute:   200
+words_per_minute:   190
 logo:               'assets/img/logo.png'
 background:         'assets/img/placeholder-big.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
@@ -25,7 +25,7 @@ sass:
   style:            compressed
 
 # Comments
-disqus_shortname:   taylantatli
+disqus_shortname:   zaemyung
 
 # Social
 # if you don't have any of social below, comment the line.
@@ -36,7 +36,8 @@ disqus_shortname:   taylantatli
   #ad-client:
   #ad-slot:
 #bing-verify:
-email:              zaemyung at gmail dot com
+# email:              zaemyung at gmail dot com
+google-scholar:     WIpsTa4AAAAJ
 facebook:           zaemyung
 github-url:         zaemyung
 linkedin:           zae-myung-kim-95a44a16
