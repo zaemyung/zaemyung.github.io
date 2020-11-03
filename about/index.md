@@ -27,7 +27,7 @@ I am a Ph.D. student under the co-supervision of [Laurent Besacier](http://lig-m
 * Young-Seob Jeong, **Zae Myung Kim**, Hyun-Woo Do, Chae-Gyun Lim, Ho-Jin Choi. **"Temporal information extraction from Korean texts."** *CoNLL 2015*
 
 ## Patent
-* Hyung-rai Oh, Ho-Jin Choi, **Zae-myung Kim**, Kyo-joong Oh, Chae-gyun Lim. **"Terminal, server and event suggesting methods thereof."** July 2019. *US Patent 10,353,975*
+* Hyung-rai Oh, Ho-Jin Choi, **Zae Myung Kim**, Kyo-joong Oh, Chae-gyun Lim. **"Terminal, server and event suggesting methods thereof."** July 2019. *US Patent 10,353,975*
 
 ## Talks
 * Joonghwi Shin, Kweonwoo Jung, **Zae Myung Kim**. **"Papago Internals : Model Analysis and Development with Applied Technology."** *DEVIEW 2018* **[\[talk (in Korean)\]](https://deview.kr/2018/schedule/241)**, **[\[slides (in Korean)\]](https://www.slideshare.net/deview/245papago-internals-119175259)**
