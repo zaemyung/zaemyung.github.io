@@ -20,7 +20,7 @@ I am a Ph.D. student under the co-supervision of [Laurent Besacier](http://lig-m
 
 ## Selected Publications
 * Yujin Baek<sup>\*</sup>, **Zae Myung Kim<sup>\*</sup>**, Jihyung Moon, Hyunjoong Kim, Eunjeong L. Park. "PATQUEST: Papago Translation Quality Estimation." [WMT2020](http://www.statmt.org/wmt20/quality-estimation-task.html)
-* Alexandre Bérard, **Zae Myung Kim**, Vassilina Nikoulina, Eunjeong L. Park, Matthias Gallé. "A Multilingual Neural Machine Translation Model for Biomedical Data." [NLP COVID-19 Workshop @EMNLP2020](https://www.nlpcovid19workshop.org/emnlp2020/) [\[GitHub\]](https://github.com/naver/covid19-nmt)
+* Alexandre Bérard, **Zae Myung Kim**, Vassilina Nikoulina, Eunjeong L. Park, Matthias Gallé. "A Multilingual Neural Machine Translation Model for Biomedical Data." [NLP COVID-19 Workshop @EMNLP2020](https://www.nlpcovid19workshop.org/emnlp2020/) **[\[codes\]](https://github.com/naver/covid19-nmt)**
 * **Zae Myung Kim**, Hyungrai Oh, Han-Gyu Kim, Chae-Gyun Lim, Kyo-Joong Oh, Ho-Jin Choi. "Modeling long-term human activeness using recurrent neural networks for biometric data." May 2017. BMC Medical Informatics and Decision Making 17 (1)
 * **Zae Myung Kim**, Suin Kim, Alice Oh, Ho-Jin Choi. "An adaptive vocabulary learning application through modeling learner's linguistic proficiency and interests." IEEE BigComp 2017
 * **Zae Myung Kim<sup>\*</sup>**, Young-Seob Jeong<sup>\*</sup>, Hyung Rai Oh, Kyo-Joong Oh, Chae-Gyun Lim, Youssef Iraqi, Ho-Jin Choi. "Investigating the impact of possession-way of a smartphone on action recognition." June 2016. Sensors 16 (6)
@@ -30,8 +30,8 @@ I am a Ph.D. student under the co-supervision of [Laurent Besacier](http://lig-m
 * Hyung-rai Oh, Ho-Jin Choi, **Zae-myung Kim**, Kyo-joong Oh, Chae-gyun Lim. "Terminal, server and event suggesting methods thereof." July 2019. US Patent 10,353,975
 
 ## Talks
-* Joonghwi Shin, Kweonwoo Jung, **Zae Myung Kim**. "Papago Internals : Model Analysis and Development with Applied Technology." \[Korean\] DEVIEW 2018 [\[talk\]](https://deview.kr/2018/schedule/241), [\[slides\]](https://www.slideshare.net/deview/245papago-internals-119175259)
+* Joonghwi Shin, Kweonwoo Jung, **Zae Myung Kim**. "Papago Internals : Model Analysis and Development with Applied Technology." \[Korean\] DEVIEW 2018 **[\[talk\]](https://deview.kr/2018/schedule/241)**, **[\[slides\]](https://www.slideshare.net/deview/245papago-internals-119175259)**
 
 ## Projects
 * \[Sep. 2020 ~ Present\] Constrained Recipe Generation
-* \[Mar. 2019 ~ Aug. 2019\] NAVER News Comments Analysis [\[GitHub\]](https://github.com/zaemyung/crawl-naver-news-and-comments), [\[slides\]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)
+* \[Mar. 2019 ~ Aug. 2019\] NAVER News Comments Analysis **[\[codes\]](https://github.com/zaemyung/crawl-naver-news-and-comments)**, **[\[slides\]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)**
