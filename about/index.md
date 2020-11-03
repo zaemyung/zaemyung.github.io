@@ -32,6 +32,6 @@ I am a Ph.D. student under the co-supervision of [Laurent Besacier](http://lig-m
 ## Talks
 * Joonghwi Shin, Kweonwoo Jung, **Zae Myung Kim**. **"Papago Internals : Model Analysis and Development with Applied Technology."** *DEVIEW 2018* **[\[talk (in Korean)\]](https://deview.kr/2018/schedule/241)**, **[\[slides\]](https://www.slideshare.net/deview/245papago-internals-119175259)**
 
-## Projects
+## Side Projects
 * \[Sep. 2020 ~ Present\] **Constrained Recipe Generation**
-* \[Mar. 2019 ~ Aug. 2019\] **NAVER News Comments Analysis** **[\[codes\]](https://github.com/zaemyung/crawl-naver-news-and-comments)**, **[\[slides\]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)**
+* \[Mar. 2019 ~ Aug. 2019\] **NAVER News Comments Analysis** **[\[codes\]](https://github.com/zaemyung/crawl-naver-news-and-comments)**, **[\[slides (in Korean)\]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)**
