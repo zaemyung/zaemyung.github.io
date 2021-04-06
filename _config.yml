@@ -1,7 +1,7 @@
 # Site
 title:              Zae Myung KIM
-bio:                'An NLP researcher interested in MT and multilinguality'
-description:                'An NLP researcher interested in MT and multilinguality'
+bio:                'An NLP researcher interested in machine translation, discourse analysis, and multilinguality'
+description:        'An NLP researcher interested in machine translation, discourse analysis, and multilinguality'
 reading_time:       true
 words_per_minute:   190
 logo:               'assets/img/logo.png'
