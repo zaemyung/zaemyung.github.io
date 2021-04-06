@@ -6,7 +6,7 @@ date: 2020-11-03
 comments: false
 ---
     
-I am a Ph.D. student under the co-supervision of [Laurent Besacier](http://lig-membres.imag.fr/besacier/) and [Vassilina Nikoulina](https://europe.naverlabs.com/people_user/vassilina-nikoulina/) at [NAVER LABS Europe](https://europe.naverlabs.com/); and [‪Didier Schwab](https://lig-membres.imag.fr/schwab/) at [LIG-GETALP](https://lig-getalp.imag.fr/fr/accueil/), [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr/). My research interests focus on neural machine translation, especially analyzing how multilinguality arises within the models.
+I am a Ph.D. student under the co-supervision of [Laurent Besacier](http://lig-membres.imag.fr/besacier/) and [Vassilina Nikoulina](https://europe.naverlabs.com/people_user/vassilina-nikoulina/) at [NAVER LABS Europe](https://europe.naverlabs.com/); and [‪Didier Schwab](https://lig-membres.imag.fr/schwab/) at [LIG-GETALP](https://lig-getalp.imag.fr/fr/accueil/), [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr/). My research interests focus on the intersection of neural machine translation, discourse analysis, and multilinguality.
 
 ## Work and Education
 * \[Oct. 2020 ~ Present\] Ph.D. Student @ [NAVER LABS Europe](https://www.navercorp.com/en) and [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr/)
@@ -33,5 +33,6 @@ I am a Ph.D. student under the co-supervision of [Laurent Besacier](http://lig-m
 * Joonghwi Shin, Kweonwoo Jung, **Zae Myung Kim**. **"Papago Internals : Model Analysis and Development with Applied Technology."** *DEVIEW 2018* **[\[talk (in Korean)\]](https://deview.kr/2018/schedule/241)**, **[\[slides (in Korean)\]](https://www.slideshare.net/deview/245papago-internals-119175259)**
 
 ## Side Projects
+* \[Mar. 2021 ~ Present\] **sentsplit**, a flexible sentence segmentation library using CRF model and regex rules **[\[codes\]](https://github.com/zaemyung/sentsplit)**
 * \[Sep. 2020 ~ Present\] **Constrained Recipe Generation**
 * \[Mar. 2019 ~ Aug. 2019\] **NAVER News Comments Analysis** **[\[codes\]](https://github.com/zaemyung/crawl-naver-news-and-comments)**, **[\[slides (in Korean)\]](https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255?fbclid=IwAR2DucpXrxyythuGyf5rZkDBy8yAFZ0HF_UhE3_nu6haxwGEVvAmycg1BnI)**
