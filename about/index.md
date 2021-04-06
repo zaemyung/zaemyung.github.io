@@ -15,7 +15,7 @@ I am a Ph.D. student under the co-supervision of [Laurent Besacier](https://euro
 * \[Sep. 2016 ~ Nov. 2016\] Research Intern @ [NAVER LABS Korea](https://www.naverlabs.com/en/)
 * \[Sep. 2014 ~ Aug. 2016\] M.S. in Compter Science @ [KEAI Lab](https://keai.kaist.ac.kr/), [KAIST](https://www.kaist.ac.kr/en/)
 * \[Dec. 2013 ~ Sep. 2014\] Research Intern @ [KEAI Lab](https://keai.kaist.ac.kr/), [KAIST](https://www.kaist.ac.kr/en/)
-* \[Jan. 2012 ~ Oct. 2013\] Army Interpreter & Aviation Image Analyst @ [Special Warefare Command](https://www.swc.mil.kr/), [RoK Army](https://www.army.mil.kr/webapp/user/indexMain.do?siteId=english)
+* \[Jan. 2012 ~ Oct. 2013\] Army Interpreter & Aviation Image Analyst @ [Special Warefare Command](http://www.swc.mil.kr), [RoK Army](https://www.army.mil.kr/webapp/user/indexMain.do?siteId=english)
 * \[Oct. 2008 ~ Oct. 2011\] B.Eng. in Computer Science @ [Imperial College London](https://www.imperial.ac.uk/)
 
 ## Selected Publications
