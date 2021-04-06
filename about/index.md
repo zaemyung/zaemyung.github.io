@@ -6,7 +6,7 @@ date: 2020-11-03
 comments: false
 ---
     
-I am a Ph.D. student under the co-supervision of [Laurent Besacier](http://lig-membres.imag.fr/besacier/) and [Vassilina Nikoulina](https://europe.naverlabs.com/people_user/vassilina-nikoulina/) at [NAVER LABS Europe](https://europe.naverlabs.com/); and [‪Didier Schwab](https://lig-membres.imag.fr/schwab/) at [LIG-GETALP](https://lig-getalp.imag.fr/fr/accueil/), [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr/). My research interests focus on the intersection of neural machine translation, discourse analysis, and multilinguality.
+I am a Ph.D. student under the co-supervision of [Laurent Besacier](https://europe.naverlabs.com/people_user/Laurent-Besacier/) and [Vassilina Nikoulina](https://europe.naverlabs.com/people_user/vassilina-nikoulina/) at [NAVER LABS Europe](https://europe.naverlabs.com/); and [‪Didier Schwab](https://lig-membres.imag.fr/schwab/) at [LIG-GETALP](https://lig-getalp.imag.fr/fr/accueil/), [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr/). My research interests focus on the intersection of neural machine translation, discourse analysis, and multilinguality.
 
 ## Work and Education
 * \[Oct. 2020 ~ Present\] Ph.D. Student @ [NAVER LABS Europe](https://www.navercorp.com/en) and [Université Grenoble Alpes](https://www.univ-grenoble-alpes.fr/)
