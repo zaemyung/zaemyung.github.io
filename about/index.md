@@ -19,9 +19,9 @@ I am a Ph.D. student under the co-supervision of [Laurent Besacier](https://euro
 * \[Oct. 2008 ~ Oct. 2011\] B.Eng. in Computer Science @ [Imperial College London](https://www.imperial.ac.uk/)
 
 ## Selected Publications
-* **Zae Myung Kim**, Laurent Besacier, Vassilina Nikoulina, Didier Schwab. **"Do Multilingual Neural Machine Translation Models Contain Language Pair Specific Attention Heads?"** *Findings of ACL2021 (to appear)*
-* Yujin Baek<sup>\*</sup>, **Zae Myung Kim<sup>\*</sup>**, Jihyung Moon, Hyunjoong Kim, Eunjeong L. Park. **"PATQUEST: Papago Translation Quality Estimation."** *[WMT2020](http://www.statmt.org/wmt20/quality-estimation-task.html)*
-* Alexandre Bérard, **Zae Myung Kim**, Vassilina Nikoulina, Eunjeong L. Park, Matthias Gallé. **"A Multilingual Neural Machine Translation Model for Biomedical Data."** *[NLP COVID-19 Workshop @EMNLP2020](https://www.nlpcovid19workshop.org/emnlp2020/)* **[\[codes\]](https://github.com/naver/covid19-nmt)**
+* **Zae Myung Kim**, Laurent Besacier, Vassilina Nikoulina, Didier Schwab. **"Do Multilingual Neural Machine Translation Models Contain Language Pair Specific Attention Heads?"** *Findings of ACL 2021 (to appear)*
+* Yujin Baek<sup>\*</sup>, **Zae Myung Kim<sup>\*</sup>**, Jihyung Moon, Hyunjoong Kim, Eunjeong L. Park. **"PATQUEST: Papago Translation Quality Estimation."** *[WMT 2020](http://www.statmt.org/wmt20/quality-estimation-task.html)*
+* Alexandre Bérard, **Zae Myung Kim**, Vassilina Nikoulina, Eunjeong L. Park, Matthias Gallé. **"A Multilingual Neural Machine Translation Model for Biomedical Data."** *[NLP COVID-19 Workshop @EMNLP 2020](https://www.nlpcovid19workshop.org/emnlp2020/)* **[\[codes\]](https://github.com/naver/covid19-nmt)**
 * **Zae Myung Kim**, Hyungrai Oh, Han-Gyu Kim, Chae-Gyun Lim, Kyo-Joong Oh, Ho-Jin Choi. **"Modeling long-term human activeness using recurrent neural networks for biometric data."** May 2017. *BMC Medical Informatics and Decision Making 17 (1)*
 * **Zae Myung Kim**, Suin Kim, Alice Oh, Ho-Jin Choi. **"An adaptive vocabulary learning application through modeling learner's linguistic proficiency and interests."** *IEEE BigComp 2017*
 * **Zae Myung Kim<sup>\*</sup>**, Young-Seob Jeong<sup>\*</sup>, Hyung Rai Oh, Kyo-Joong Oh, Chae-Gyun Lim, Youssef Iraqi, Ho-Jin Choi. **"Investigating the impact of possession-way of a smartphone on action recognition."** June 2016. *Sensors 16 (6)*
