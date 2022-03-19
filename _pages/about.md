@@ -2,23 +2,27 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='https://goo.gl/maps/VaoHfzfhbSndqPL67'>University of Minnesota Twin Cities, Minneapolis, Minnesota, USA</a>
 
 profile:
   align: right
   image: prof_pic.jpg
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>200 Union St SE</p>
+    <p>Minneapolis, MN 55455</p>
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a machine learning researcher interested in natural language processing (NLP). <br>
+I will be joining the [Minnesota NLP group](http://cs-u-ada.cs.umn.edu/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) at [University of Minnesota Twin Cities](https://twin-cities.umn.edu/) as a PhD student in this fall 2022.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My research interests focus on the intersection of discourse analysis, multilinguality, and conditional
+language generation.
+In particular, I am currently interested in improving the performance of document-level multilingual discourse analysis through self-supervision and multi-task learning; and applying the learned discourse information to generative tasks such as interactive and iterative text generation.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Previously, I worked as a researcher at [NAVER LABS Europe](https://europe.naverlabs.com/) and [Papago](https://papago.naver.com/) team at [NAVER Korea](https://naver.com/), where I researched on various topics in neural machine translation (NMT), such as analysis of language-pair-specific multilingual representation, document-level NMT with discourse information, cross-attention-based website translation, and quality estimation for evaluating NMT models.
+
+I received a B.Eng. degree in Computer Science from [Imperial College London](https://www.imperial.ac.uk/) in 2011, and M.S. degree from [Korea Advanced Institute of Science and Technology (KAIST)](https://www.kaist.ac.kr/en/) in 2016.
