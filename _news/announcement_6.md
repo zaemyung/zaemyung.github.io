@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-05-26
+date: 2022-05-23
 inline: true
 ---
-Our work on [system demonstration](https://www.youtube.com/watch?v=lK08tIpEoaE) for interactive and iterative text revision will be shared in [In2Writing workshop](https://in2writing.glitch.me/) at ACL 2022.
+Our work on [iterative text revision](https://aclanthology.org/2022.acl-long.250/) was accepted at ACL 2022.
