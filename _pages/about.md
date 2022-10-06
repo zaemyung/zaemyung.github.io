@@ -16,11 +16,9 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a machine learning researcher interested in natural language processing (NLP). <br>
-I will be joining the [Minnesota NLP group](http://cs-u-ada.cs.umn.edu/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) at [University of Minnesota Twin Cities](https://twin-cities.umn.edu/) as a PhD student in this fall 2022.
+I am a second year Ph.D. student in the [Minnesota NLP group](http://cs-u-ada.cs.umn.edu/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) at [University of Minnesota Twin Cities](https://twin-cities.umn.edu/). <br>
 
-My research interests focus on the intersection of discourse analysis, multilinguality, and conditional
-language generation.
+My research interests focus on the intersection of discourse analysis, multilinguality, and conditional language generation.
 In particular, I am currently interested in improving the performance of document-level multilingual discourse analysis through self-supervision and multi-task learning; and applying the learned discourse information to generative tasks such as interactive and iterative text generation.
 
 Previously, I worked as a researcher at [NAVER LABS Europe](https://europe.naverlabs.com/) and [Papago](https://papago.naver.com/) team at [NAVER Korea](https://naver.com/), where I researched on various topics in neural machine translation (NMT), such as analysis of language-pair-specific multilingual representation, document-level NMT with discourse information, cross-attention-based website translation, and quality estimation for evaluating NMT models.
