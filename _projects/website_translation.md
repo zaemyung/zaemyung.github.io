@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Website Translation
-description: Website translation service using NMT at Papago, NAVER
+description: Website translation service (Papago, NAVER) using NMT and word alignment
 img: assets/img/webtrans.png
 redirect: https://papago.naver.net/website?locale=en
-importance: 4
+importance: 3
 category: past
 ---
