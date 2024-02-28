@@ -1,3 +1,6 @@
+{%- if site.cv_url -%}
+  <a href="{{ site.baseurl | prepend: site.cv_url }}" title="CV" target="{{ site.baseurl | prepend: site.cv_url }}"><i class="ai ai-cv ai-1x"></i></a>
+{% endif %}
 {% if site.email %}
   <a href="mailto:{{ site.email | encode_email }}" title="email"><i class="fa-solid fa-envelope"></i></a>
 {% endif %}
