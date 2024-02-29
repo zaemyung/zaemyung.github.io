@@ -24,6 +24,7 @@ To put it differently, it seems to me that the instruction-tuned LMs nowadays ha
 
 #### References
 - Wittgenstein, L. (2009) [1953]. Philosophical Investigations.
+- Austin, J.L. (1962). How to do Things with Words, 2nd edition, J.O. Urmson and M. Sbisá (eds.), Cambridge, MA: Harvard University Press.
 - Daniel W. Harris & Elmar Unnsteinsson (2018) Wittgenstein’s influence on Austin’s philosophy of language, British Journal for the History of Philosophy, 26:2, 371-395, DOI: 10.1080/09608788.2017.1396958
 - Wittgenstein, L. (1982). Culture and Value. Critica 14 (41):93-96.
 - The School of Life, PHILOSOPHY - Ludwig Wittgenstein, https://www.youtube.com/watch?v=pQ33gAyhg2c
