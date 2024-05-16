@@ -18,7 +18,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am currently a third-year Ph.D. student in the [Minnesota NLP group](http://cs-u-ada.cs.umn.edu/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) at [University of Minnesota Twin Cities](https://twin-cities.umn.edu/).
+I am currently a third-year Ph.D. candidate in the [Minnesota NLP group](http://cs-u-ada.cs.umn.edu/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) at [University of Minnesota Twin Cities](https://twin-cities.umn.edu/).
 
 My research interest is centered around two key areas. *First*, I am focused on enhancing the representation of (very) long textual contexts (e.g., sequences of documents), by utilizing long-term hierarchical structures identified in linguistics, such as discourse frameworks and linguistic moves. This endeavor aims to delve deeper than the surface level of text, akin to **"reading between the lines."** It involves uncovering the pragmatic relations and long-term motivations underlying the authoring of sentences and paragraphs. By doing so, I seek to enhance our (and language models') understanding and processing of complex textual materials, revealing the intricate patterns and motivations that guide the construction of extended narratives. <br>
 *Second*, I aim to develop language models that are capable of generating content guided by these long-term structures, effectively acting as a **"plan for writing."** This approach aims to improve thematic cohesion, controllability, and efficiency (via "caching" of these structures) in producing text across extensive contexts.
@@ -33,6 +33,6 @@ I received a B.Eng. degree in Computer Science from [Imperial College London](ht
 From 2012 to 2013, I served in the Republic of Korea Army Special Forces as an army interpreter and a geospatial image analyst.
 In 2016, I received an M.S. degree in Computer Science from [Korea Advanced Institute of Science and Technology (KAIST)](https://www.kaist.ac.kr/en/).
 
-For the Spring 2024 semester, I am actively involved in organizing the meetings and seminars for **[Textgroup](https://textgroup.github.io/)**. Additionally, since October 2020, I have been leading **Seeking-SOTA**, a deep learning study group that convenes weekly. This group brings together researchers, academics, and professionals in South Korea, all dedicated to staying at the cutting edge of the field of deep learning.
+For the Spring 2024 semester, I am actively involved in organizing the meetings and seminars for **[Textgroup](https://www.youtube.com/@textgroup)**. Additionally, since October 2020, I have been leading **Seeking-SOTA**, a deep learning study group that convenes weekly. This group brings together researchers, academics, and professionals in South Korea, all dedicated to staying at the cutting edge of the field of deep learning.
 
 My Ph.D. program is generously supported by 3M Science and Technology Fellowships.

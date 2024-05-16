@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2024-02-15
+date: 2024-06-13
 inline: true
 related_posts: false
 ---
-Our research on differentiating between machine-generated and human-authored texts through the analysis of "discourse motifs" has been published on [arXiv](https://arxiv.org/abs/2402.10586).
+I am thrilled to be interning at Amazon AGI this summer where I will be working on model alignment with discourse signals.
