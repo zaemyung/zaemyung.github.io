@@ -28,6 +28,6 @@ I received a B.Eng. degree in Computer Science from [Imperial College London](ht
 From 2012 to 2013, I served in the Republic of Korea Army Special Forces as an army interpreter and a geospatial image analyst.
 In 2016, I received an M.S. degree in Computer Science from [Korea Advanced Institute of Science and Technology (KAIST)](https://www.kaist.ac.kr/en/).
 
-For the Spring 2024 semester, I am actively involved in organizing the meetings and seminars for **[Textgroup](https://www.youtube.com/@textgroup)**. Additionally, since October 2020, I have been leading **Seeking-SOTA**, a deep learning study group that convenes weekly. This group brings together researchers, academics, and professionals in South Korea, all dedicated to staying at the cutting edge of the field of deep learning.
+During the Spring 2024 semester, I organized the meetings and seminars for **[Textgroup](https://www.youtube.com/@textgroup)**, an interdisciplinary reading group focused on language. Additionally, since October 2020, I have been leading **Seeking-SOTA**, a deep learning study group that convenes weekly. This group brings together researchers, academics, and professionals in South Korea, all dedicated to staying at the cutting edge of the field of deep learning. Let me know if you are interested in joining either of these groups!
 
 My Ph.D. program is generously supported by 3M Science and Technology Fellowship and Doctoral Dissertation Fellowship.
