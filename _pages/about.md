@@ -18,7 +18,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a third-year Ph.D. candidate in the [Minnesota NLP group](https://minnesotanlp.github.io/index.html) led by [Prof. Dongyeop Kang](https://dykang.github.io/) at [University of Minnesota Twin Cities](https://twin-cities.umn.edu/).
+I am a fourth-year Ph.D. candidate in the [Minnesota NLP group](https://minnesotanlp.github.io/index.html) led by [Prof. Dongyeop Kang](https://dykang.github.io/) at [University of Minnesota Twin Cities](https://twin-cities.umn.edu/).
 
 My research interests center on developing a "meta-scaffolding paradigm" that integrates discourse structures, dataset metadata, and metacognitive feedback into the training loop of large language models to stabilize learning and produce interpretable, coherent long-form text. I design disciplined training schemes that slash data and compute demands, curtail manual prompt engineering, and steer model reasoning toward human-like cognitive patterns.
 
