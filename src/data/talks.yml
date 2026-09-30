@@ -1,0 +1,29 @@
+# Invited talks (from My_CV.pdf, newest first). date is YYYY-MM-DD.
+- date: "2026-09-21"
+  kind: Seminar Talk
+  host: Dept. of Artificial Intelligence, Sungkyunkwan University
+  title: 'Metacognition for Self-Improving Agents: Who Judges the Judge, Who Improves the Improver'
+  description: 'Talk titled, Metacognition for Self-Improving Agents: Who Judges the Judge, Who Improves the Improver.'
+- date: "2022-07-28"
+  kind: Seminar Talk
+  host: Dept. of Computer Engineering, Chungbuk National University
+  title: Iterative text revision, machine translation, and discourse relations
+  description: Presented research on iterative text revision, machine translation, and discourse relations.
+- date: "2021-12-02"
+  kind: Colloquium Talk
+  host: Graduate School of Software, KAIST
+  title: Cross-Lingual Discourse Analysis and Its Application
+  description: Talk titled, Cross-Lingual Discourse Analysis and Its Application.
+- date: "2018-10-12"
+  kind: Conference Talk
+  host: DEVIEW 2018
+  title: 'Papago Internals: Model Analysis and Development with Applied Technology'
+  description: 'Talk titled, Papago Internals: Model Analysis and Development with Applied Technology.'
+  links:
+    slides: https://www.slideshare.net/slideshow/245papago-internals-119175259/119175259
+    video: https://deview.naver.com/2018/schedule/241
+- date: "2016-11-11"
+  kind: Seminar Talk
+  host: Rye & Catchers
+  title: Processing and utilizing textual data for Bibly, a book recommendation service
+  description: "Talked about how textual data can be processed and utilized by Bibly, the company's book recommendation service."

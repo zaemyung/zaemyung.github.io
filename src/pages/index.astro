@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import Pillars from "../components/Pillars.astro";
+import Sidebar from "../components/Sidebar.astro";
+import PubEntry from "../components/PubEntry.astro";
+import { selectedPapers } from "../lib/data";
+const selected = selectedPapers();
+---
+
+<Base>
+  <div class="home">
+    <Sidebar />
+    <div>
+      <Hero />
+      <Pillars />
+      {
+        selected.length > 0 && (
+          <section class="section">
+            <div class="section-head">
+              <div>
+                <h2>
+                  Selected <em>publications</em>
+                </h2>
+              </div>
+              <a class="more" href="/publications/">
+                All publications →
+              </a>
+            </div>
+            <ul class="pub-list">
+              {selected.map((p) => (
+                <PubEntry paper={p} thumb tldr abstract={false} />
+              ))}
+            </ul>
+          </section>
+        )
+      }
+    </div>
+  </div>
+</Base>

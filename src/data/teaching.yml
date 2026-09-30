@@ -1,0 +1,81 @@
+# Teaching experience (from My_CV.pdf, newest first). lectures[].date is YYYY-MM-DD.
+- term: Spring 2025
+  role: Lecturer
+  course: Natural Language Processing (CSCI 5541)
+  org: University of Minnesota
+  lectures:
+    - date: "2025-04-01"
+      title: LLMs as Agents
+- term: Fall 2024
+  role: Head Teaching Assistant
+  course: Intro. to Computer Programming in Java (CSCI 1103)
+  org: University of Minnesota
+  lectures: []
+- term: Fall 2024
+  role: Lecturer
+  course: Natural Language Processing (CSCI 5541)
+  org: University of Minnesota
+  lectures:
+    - date: "2024-10-31"
+      title: LLMs as Agents
+- term: Spring 2024
+  role: Teaching Assistant, Lecturer
+  course: Natural Language Processing (CSCI 5541)
+  org: University of Minnesota
+  lectures:
+    - date: "2024-04-02"
+      title: Instructing and Augmenting LLMs
+- term: Fall 2023
+  role: Teaching Assistant, Lecturer
+  course: Natural Language Processing (CSCI 5541)
+  org: University of Minnesota
+  lectures:
+    - date: "2023-11-21"
+      title: 'Advanced Topics: Instructing and Augmenting LLMs'
+- term: Sept 2022
+  role: Lecturer
+  course: Elice Digital Transformation Training
+  org: Samsung Electronics
+  lectures: []
+- term: Winter 2022
+  role: Teaching Assistant
+  course: Advanced Language Processing Winter School 2022
+  org: null
+  lectures: []
+- term: Winter 2021
+  role: Teaching Assistant
+  course: Advanced Language Processing Winter School 2021
+  org: null
+  lectures: []
+- term: Fall 2021
+  role: Mentor
+  course: Academic-Industrial Collaboration Project
+  org: Chungbuk National University
+  lectures: []
+- term: Summer 2021
+  role: Lecturer
+  course: Three seminars on NLP trends and practical sessions
+  org: Rye & Catchers
+  lectures: []
+- term: Fall 2016
+  role: Teaching Assistant
+  course: Elice AI & Data Science Course
+  org: Daejeon Creative Economy Innovation Center
+  lectures: []
+- term: Fall 2015
+  role: Teaching Assistant, Lecturer
+  course: Introduction to AI (CS470)
+  org: KAIST
+  lectures:
+    - date: "2015-09-02"
+      title: Extracting travel-related intents from textual review data
+- term: Summer 2015
+  role: Teaching Assistant
+  course: Machine Learning Summer Camp 2015 (Online)
+  org: KAIST
+  lectures: []
+- term: Spring 2015
+  role: Teaching Assistant
+  course: Programming Practice (CS109)
+  org: KAIST
+  lectures: []

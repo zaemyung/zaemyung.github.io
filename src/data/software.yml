@@ -1,0 +1,73 @@
+# Software/projects converted from Jekyll _projects/*.md (current first, then by importance).
+- slug: iterater
+  title: IteraTeR
+  description: A framework for interactive and iterative text revision task
+  image: img/read_revise_repeat.png
+  url: https://github.com/vipulraheja/iterater
+  category: past
+  body_html: null
+- slug: meta-n
+  title: Meta^n
+  description: Recursive self-improvement through emergent depth. Code and agents for our NeurIPS 2026 paper.
+  image: img/papers/kim-etal-2026-meta.jpg
+  url: https://github.com/minnesotanlp/meta-n
+  category: current
+  body_html: null
+- slug: the-amazing-agent-race
+  title: The Amazing Agent Race
+  description: A benchmark of fork-merge tool-use puzzles over Wikipedia. Strong tool users, weak navigators.
+  image: img/papers/kim-etal-2026-amazing.jpg
+  url: https://github.com/minnesotanlp/the-amazing-agent-race
+  category: current
+  body_html: null
+- slug: threads-of-subtlety
+  title: Threads of Subtlety
+  description: Detecting machine-generated text through discourse motifs. Code and data for our ACL 2024 paper.
+  image: img/papers/kim-etal-2024-threads.jpg
+  url: https://github.com/minnesotanlp/threads-of-subtlety
+  category: current
+  body_html: null
+- slug: sentsplit
+  title: sentsplit
+  description: A flexible sentence segmentation library using CRF model and regex rules
+  image: img/sentsplit.jpg
+  url: https://github.com/zaemyung/sentsplit
+  category: current
+  body_html: |-
+    <p>Working in the field of natural language processing, I am often faced with the task of segmenting a text passage into multiple sentences.</p>
+    <p><a href="https://github.com/zaemyung/sentsplit" target="_blank" rel="noopener"><code>sentsplit</code></a> is a sentence segmentation library for Python with the following desiderata in mind:</p>
+    <ul>
+      <li>Be able to extend to new languages or "types" of sentences from the data alone.</li>
+      <li>But also provide functionality to segment (or not to segment) lines based on regular expression rules.</li>
+      <li>Be able to reconstruct the exact original text paragraphs from joining the segmented sentences.</li>
+    </ul>
+    <p>The basic idea is to train and run a conditional random field model on the texts for the first pass; and apply regex rules for more control in the second pass, hopefully allowing for more flexibility.</p>
+    <p>Demo of this library is available <a href="https://share.streamlit.io/zaemyung/sentsplit/main" target="_blank" rel="noopener">here</a>.</p>
+- slug: streamlit_tutorial
+  title: Streamlit Tutorial
+  description: A simple tutorial for Streamlit using the Iris dataset
+  image: img/iris.jpg
+  url: https://github.com/zaemyung/streamlit-tutorial
+  category: past
+  body_html: null
+- slug: viz_crossling
+  title: Visualizing discourse relations
+  description: A tool for visualizing cross-lingual discourse relations
+  image: img/viz_crosslingual.png
+  url: https://github.com/zaemyung/Visualizing-Cross-Lingual-Discourse-Relations
+  category: past
+  body_html: null
+- slug: website_translation
+  title: Website Translation
+  description: Website translation service (Papago, NAVER) using NMT and word alignment
+  image: img/webtrans.png
+  url: https://papago.naver.net/website?locale=en
+  category: past
+  body_html: null
+- slug: news_comments
+  title: Analyzing news comments
+  description: Online news comments analysis revealing public opinion manipulators and possible solutions [in Korean]
+  image: img/news_comments.png
+  url: https://www.slideshare.net/JiHyungMoon1/ko-en-online-news-comments-analysis-revealing-public-opinion-manipulators-and-possible-solutions-185118255
+  category: past
+  body_html: null

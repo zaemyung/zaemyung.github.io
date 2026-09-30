@@ -1,0 +1,105 @@
+name: Zae Myung Kim
+name_native: 김재명 · 金在銘
+title: Ph.D. Candidate
+department: Computer Science & Engineering
+affiliation: University of Minnesota Twin Cities
+location: Minneapolis, MN
+email: kim01756@umn.edu
+photo: /img/prof_pic.jpg
+cv: /pdf/My_CV.pdf
+group: Minnesota NLP
+group_url: https://minnesotanlp.github.io/
+advisor: Dongyeop Kang
+advisor_url: https://dykang.github.io/
+description: Researcher working on linguistic structure, metacognitive self-improvement, and human-AI collaboration. Ph.D. candidate at the University of Minnesota.
+
+socials:
+  - label: Google Scholar
+    href: https://scholar.google.com/citations?user=WIpsTa4AAAAJ
+    icon: scholar
+  - label: GitHub
+    href: https://github.com/zaemyung
+    icon: github
+  - label: LinkedIn
+    href: https://www.linkedin.com/in/zaemyung
+    icon: linkedin
+  - label: X
+    href: https://x.com/zaemyung
+    icon: x
+  - label: Instagram
+    href: https://www.instagram.com/for.kairos/
+    icon: instagram
+  - label: Email
+    href: mailto:kim01756@umn.edu
+    icon: mail
+
+affiliations:
+  - label: Minnesota NLP
+    href: https://minnesotanlp.github.io/
+  - label: Seeking-SOTA
+    href: https://github.com/zaemyung/Seeking-SOTA/
+
+role_line: Linguistic structure · metacognitive self-improvement · human-AI collaboration
+thesis: I teach language models to write with <em>structure</em>, then to judge and <em>recursively improve</em> their own reasoning.
+lead:
+  - >-
+    I am a Ph.D. candidate in the <a href="https://minnesotanlp.github.io/">Minnesota NLP</a> group at the
+    University of Minnesota, advised by <a href="https://dykang.github.io/">Dongyeop Kang</a>. My research develops a
+    <em>meta-scaffolding</em> paradigm for large language models: discourse-level structure as a training signal for
+    coherent long-form generation, metacognitive feedback inside reinforcement learning to stabilize optimization, and
+    test-time metacognition that lets agents recursively improve themselves.
+  - >-
+    Before the Ph.D. I worked on machine translation at NAVER LABS Europe and Papago, and I have interned at Amazon AWS,
+    Amazon AGI, Salesforce AI Research, and Grammarly.
+
+cta:
+  - label: Publications
+    href: /publications/
+    primary: true
+    icon: book
+  - label: Gallery
+    href: /gallery/
+    icon: grid
+  - label: CV
+    href: /pdf/My_CV.pdf
+    external: true
+    icon: file
+  - label: Google Scholar
+    href: https://scholar.google.com/citations?user=WIpsTa4AAAAJ
+    external: true
+    icon: scholar
+
+pillars:
+  - num: "01"
+    tag: Structure
+    heading: Give language models a sense of discourse.
+    blurb: >-
+      Discourse-level structure as both a training signal and an analysis lens: structural alignment for coherent
+      long-form generation, and discourse motifs that tell human writing from machine text.
+    papers:
+      - { label: Align to Structure, match: "Align to Structure" }
+      - { label: Threads of Subtlety, match: "Threads of Subtlety" }
+      - { label: Implicatures, match: "Pope Catholic" }
+      - { label: Cross-lingual Discourse, match: "Visualizing Cross" }
+  - num: "02"
+    tag: Metacognition
+    heading: Let models judge, and improve, themselves.
+    blurb: >-
+      Metacognitive feedback inside the training loop: evolving reward models, evaluators audited for cognitive bias,
+      and recursive self-improvement whose layers take on emergent roles.
+    papers:
+      - { label: "Meta^n", match: "Recursive Self-Improvement" }
+      - { label: MPO, match: "Meta Policy Optimization" }
+      - { label: CoBBLEr, match: "Cognitive Biases" }
+  - num: "03"
+    tag: Collaboration
+    heading: Build AI that writes and works alongside people.
+    blurb: >-
+      Interactive revision systems, sensemaking scaffolds for researchers, and benchmarks that probe how agents
+      navigate real tools and tasks.
+    papers:
+      - { label: Amazing Agent Race, match: "Amazing Agent Race" }
+      - { label: Structure Liberates, match: "Structure Liberates" }
+      - { label: IteraTeR, match: "Learning Where To Edit" }
+      - { label: R3, match: "Read, Revise, Repeat" }
+      - { label: Iterative Revision, match: "Understanding Iterative Revision" }

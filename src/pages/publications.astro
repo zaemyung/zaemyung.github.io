@@ -1,0 +1,22 @@
+---
+import Base from "../layouts/Base.astro";
+import PubList from "../components/PubList.astro";
+import { allPapers } from "../lib/data";
+const papers = allPapers();
+---
+
+<Base title="Publications" description="Publications by Zae Myung Kim: peer-reviewed papers, preprints, and a patent.">
+  <header class="page-head">
+    <div class="eyebrow">{papers.length} entries</div>
+    <h1>Publications</h1>
+    <p class="sub">
+      Peer-reviewed papers, preprints, and a patent, grouped by year or by research topic. Asterisks mark equal
+      contribution. Also on <a
+        href="https://scholar.google.com/citations?user=WIpsTa4AAAAJ"
+        target="_blank"
+        rel="noopener">Google Scholar</a
+      >, or browse the <a href="/gallery/">research gallery</a>.
+    </p>
+  </header>
+  <PubList papers={papers} />
+</Base>

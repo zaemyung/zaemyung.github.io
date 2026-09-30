@@ -1,0 +1,372 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import { allPapers, TOPICS, TOPIC_ORDER } from "../lib/data";
+import "../styles/gallery.css";
+
+const papers = allPapers();
+const data = papers.map((p) => ({
+  id: p.id,
+  title: p.title,
+  authors: p.authors,
+  venue: p.venue,
+  venue_full: p.venue_full ?? null,
+  year: p.year,
+  type: p.type,
+  status: p.status ?? null,
+  topics: p.topics?.length ? p.topics : ["others"],
+  note: p.note ?? null,
+  links: p.links ?? {},
+  abstract: p.abstract ?? null,
+  tldr: p.tldr ?? null,
+  preview: p.preview ?? null,
+}));
+const years = [...new Set(papers.map((p) => p.year))].sort((a, b) => b - a);
+const venueCounts = new Map<string, number>();
+for (const p of papers) venueCounts.set(p.venue, (venueCounts.get(p.venue) ?? 0) + 1);
+const venues = [...venueCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const typeOrder = ["conference", "findings", "journal", "workshop", "preprint", "patent"];
+const types = typeOrder.filter((t) => papers.some((p) => p.type === t));
+const topicLabels = Object.fromEntries(TOPIC_ORDER.map((k) => [k, TOPICS[k].label]));
+---
+
+<Base title="Research Gallery" description="A visual, searchable gallery of Zae Myung Kim's research papers.">
+  <header class="page-head">
+    <div class="eyebrow">{papers.length} papers</div>
+    <h1>Research <em>gallery</em></h1>
+    <p class="sub">
+      Every paper as a card. Search, filter by year, topic, venue, or type, and click a card for the abstract and links.
+    </p>
+  </header>
+
+  <div class="g-controls">
+    <label class="g-search">
+      <Icon name="search" size={16} />
+      <input id="g-search" type="search" placeholder="Search titles, venues, authors, abstracts" autocomplete="off" />
+      <span class="count mono" id="g-count"></span>
+    </label>
+    <div class="g-filters">
+      <div class="g-group" data-filter="year">
+        <span class="g-label">Year</span>
+        <button class="g-chip on" data-value="">All</button>
+        {
+          years.map((y) => (
+            <button class="g-chip" data-value={String(y)}>
+              {y}
+            </button>
+          ))
+        }
+      </div>
+      <div class="g-group" data-filter="topic">
+        <span class="g-label">Topic</span>
+        <button class="g-chip on" data-value="">All</button>
+        {
+          TOPIC_ORDER.map((k) => (
+            <button class="g-chip" data-value={k} data-topic={k}>
+              {TOPICS[k].label}
+            </button>
+          ))
+        }
+      </div>
+      <div class="g-group" data-filter="venue">
+        <span class="g-label">Venue</span>
+        <button class="g-chip on" data-value="">All</button>
+        {
+          venues.map(([v, n]) => (
+            <button class="g-chip" data-value={v}>
+              {v}
+              <span class="n">{n}</span>
+            </button>
+          ))
+        }
+      </div>
+      <div class="g-group" data-filter="type">
+        <span class="g-label">Type</span>
+        <button class="g-chip on" data-value="">All</button>
+        {
+          types.map((t) => (
+            <button class="g-chip" data-value={t}>
+              {t}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+    <div class="g-toggles">
+      <label><input id="g-dense" type="checkbox" /> Dense view</label>
+      <button id="g-clear" class="btn" type="button">Clear</button>
+    </div>
+  </div>
+
+  <div id="g-grid" class="g-grid" data-topics={JSON.stringify(topicLabels)} aria-live="polite"></div>
+  <p id="g-empty" class="g-empty muted" hidden>No papers match those filters.</p>
+
+  <dialog id="g-modal" class="g-modal" aria-labelledby="g-mtitle">
+    <div class="g-shell" tabindex="-1">
+      <div class="g-mtop">
+        <div style="flex:1; min-width:0">
+          <h2 id="g-mtitle"></h2>
+          <div class="g-meta" id="g-mmeta"></div>
+        </div>
+        <div class="g-mnav">
+          <button class="icon-btn" id="g-prev" aria-label="Previous paper" title="Previous (←)"
+            ><Icon name="arrow-left" /></button
+          >
+          <button class="icon-btn" id="g-next" aria-label="Next paper" title="Next (→)"
+            ><Icon name="arrow-right" /></button
+          >
+          <button class="icon-btn" id="g-close" aria-label="Close" title="Close (Esc)"><Icon name="close" /></button>
+        </div>
+      </div>
+      <div class="g-mbody">
+        <div>
+          <div class="g-chips" id="g-mchips" style="margin-bottom:14px"></div>
+          <div class="g-mhero" id="g-mhero"></div>
+          <p class="g-tldr-big" id="g-mtldr"></p>
+          <div class="g-msec">
+            <div class="t">Abstract</div>
+            <div class="g-abstract" id="g-mabstract"></div>
+          </div>
+        </div>
+        <div>
+          <div class="g-msec">
+            <div class="t">Links</div>
+            <div class="g-links" id="g-mlinks"></div>
+          </div>
+          <div class="g-msec">
+            <div class="t">Authors</div>
+            <ul class="g-authors-list" id="g-mauthors"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="application/json" id="g-data" set:html={JSON.stringify(data)} />
+</Base>
+
+<script>
+  type Paper = {
+    id: string;
+    title: string;
+    authors: string[];
+    venue: string;
+    venue_full: string | null;
+    year: number;
+    type: string;
+    status: string | null;
+    topics: string[];
+    note: string | null;
+    links: Record<string, string | null>;
+    abstract: string | null;
+    tldr: string | null;
+    preview: string | null;
+  };
+  const OWN = "Zae Myung Kim";
+  const papers: Paper[] = JSON.parse(document.getElementById("g-data")!.textContent || "[]");
+  const grid = document.getElementById("g-grid")!;
+  const topicLabels: Record<string, string> = JSON.parse(grid.dataset.topics || "{}");
+  const search = document.getElementById("g-search") as HTMLInputElement;
+  const count = document.getElementById("g-count")!;
+  const empty = document.getElementById("g-empty")!;
+  const dense = document.getElementById("g-dense") as HTMLInputElement;
+  const clearBtn = document.getElementById("g-clear")!;
+  const groups = [...document.querySelectorAll<HTMLElement>(".g-group")];
+
+  const state: Record<string, string> = { q: "", year: "", topic: "", venue: "", type: "" };
+  let filtered: Paper[] = [];
+
+  const esc = (s: string) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const authorHtml = (a: string) => {
+    const star = a.endsWith("*");
+    const name = star ? a.slice(0, -1).trim() : a;
+    const h = esc(name) + (star ? "<sup>*</sup>" : "");
+    return name === OWN ? `<span class="me">${h}</span>` : h;
+  };
+  const hay = (p: Paper) =>
+    [
+      p.title,
+      p.venue,
+      p.venue_full ?? "",
+      String(p.year),
+      p.authors.join(" "),
+      p.abstract ?? "",
+      p.tldr ?? "",
+      p.topics.map((t) => topicLabels[t] ?? t).join(" "),
+    ]
+      .join(" ")
+      .toLowerCase();
+
+  function matches(p: Paper) {
+    if (state.year && String(p.year) !== state.year) return false;
+    if (state.topic && !p.topics.includes(state.topic)) return false;
+    if (state.venue && p.venue !== state.venue) return false;
+    if (state.type && p.type !== state.type) return false;
+    if (state.q) {
+      const h = hay(p);
+      if (!state.q.split(/\s+/).every((w) => h.includes(w))) return false;
+    }
+    return true;
+  }
+
+  function card(p: Paper) {
+    const topic = p.topics[0] ?? "others";
+    const media = p.preview
+      ? `<img src="/${esc(p.preview)}" alt="" loading="lazy">`
+      : `<div class="g-ph" data-topic="${esc(topic)}"><span>${esc(p.title)}</span></div>`;
+    const chips = [
+      `<span class="chip filled">${p.year}</span>`,
+      ...p.topics.map((t) => `<span class="chip" data-topic="${esc(t)}">${esc(topicLabels[t] ?? t)}</span>`),
+      `<span class="chip filled">${esc(p.venue)}</span>`,
+      p.note ? `<span class="chip award">${esc(p.note)}</span>` : "",
+    ].join("");
+    return `<article class="g-card" data-id="${esc(p.id)}" tabindex="0" role="button" aria-label="${esc(p.title)}">
+      <div class="g-media">${media}</div>
+      <div class="g-body">
+        <h3>${esc(p.title)}</h3>
+        <div class="g-chips">${chips}</div>
+        <div class="g-authors">${p.authors.map(authorHtml).join(", ")}</div>
+        <p class="g-tldr">${esc(p.tldr || p.abstract || "")}</p>
+        <div class="g-foot"><span>${esc(p.status === "under review" ? "under review" : p.type)}</span><span>Open ↗</span></div>
+      </div>
+    </article>`;
+  }
+
+  function render() {
+    filtered = papers.filter(matches);
+    grid.innerHTML = filtered.map(card).join("");
+    count.textContent = `${filtered.length} / ${papers.length}`;
+    empty.hidden = filtered.length > 0;
+  }
+
+  // filters
+  for (const g of groups) {
+    g.addEventListener("click", (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>(".g-chip");
+      if (!b) return;
+      state[g.dataset.filter!] = b.dataset.value || "";
+      g.querySelectorAll(".g-chip").forEach((c) => c.classList.toggle("on", c === b));
+      render();
+    });
+  }
+  let t: number | undefined;
+  search.addEventListener("input", () => {
+    window.clearTimeout(t);
+    t = window.setTimeout(() => {
+      state.q = search.value.trim().toLowerCase();
+      render();
+    }, 120);
+  });
+  clearBtn.addEventListener("click", () => {
+    for (const k of Object.keys(state)) state[k] = "";
+    search.value = "";
+    groups.forEach((g) => g.querySelectorAll(".g-chip").forEach((c, i) => c.classList.toggle("on", i === 0)));
+    render();
+  });
+  try {
+    dense.checked = localStorage.getItem("gallery-dense") === "1";
+  } catch {}
+  grid.classList.toggle("dense", dense.checked);
+  dense.addEventListener("change", () => {
+    grid.classList.toggle("dense", dense.checked);
+    try {
+      localStorage.setItem("gallery-dense", dense.checked ? "1" : "0");
+    } catch {}
+  });
+
+  // modal
+  const modal = document.getElementById("g-modal") as HTMLDialogElement;
+  const $ = (id: string) => document.getElementById(id)!;
+  let current: Paper | null = null;
+  const LINKS: [string, string][] = [
+    ["paper", "Paper"],
+    ["code", "Code"],
+    ["project", "Project page"],
+    ["demo", "Demo"],
+    ["data", "Data"],
+    ["video", "Video"],
+    ["slides", "Slides"],
+    ["poster", "Poster"],
+  ];
+
+  function fill(p: Paper) {
+    current = p;
+    $("g-mtitle").textContent = p.title;
+    const meta = [
+      p.venue_full && p.venue_full !== p.venue ? `${p.venue_full}` : p.venue,
+      String(p.year),
+      p.status === "under review" ? "under review" : "",
+    ]
+      .filter(Boolean)
+      .join(" · ");
+    $("g-mmeta").textContent = meta;
+    $("g-mchips").innerHTML = [
+      `<span class="chip filled">${p.year}</span>`,
+      ...p.topics.map((t) => `<span class="chip" data-topic="${esc(t)}">${esc(topicLabels[t] ?? t)}</span>`),
+      `<span class="chip filled">${esc(p.venue)}</span>`,
+      `<span class="chip filled">${esc(p.type)}</span>`,
+      p.note ? `<span class="chip award">${esc(p.note)}</span>` : "",
+    ].join("");
+    $("g-mhero").innerHTML = p.preview ? `<img src="/${esc(p.preview)}" alt="Figure from ${esc(p.title)}">` : "";
+    $("g-mtldr").textContent = p.tldr ?? "";
+    $("g-mtldr").hidden = !p.tldr;
+    $("g-mabstract").textContent = p.abstract ?? "Abstract not available.";
+    $("g-mlinks").innerHTML =
+      LINKS.filter(([k]) => p.links[k])
+        .map(([k, label]) => `<a class="link-pill lg" data-kind="${k}" href="${esc(p.links[k]!)}" target="_blank" rel="noopener">${label}</a>`)
+        .join("") || `<span class="muted">No links yet.</span>`;
+    $("g-mauthors").innerHTML = p.authors.map((a) => `<li>${authorHtml(a)}</li>`).join("");
+    $("g-prev").toggleAttribute("disabled", filtered.indexOf(p) <= 0);
+    $("g-next").toggleAttribute("disabled", filtered.indexOf(p) >= filtered.length - 1);
+  }
+  function open(id: string, push = true) {
+    const p = papers.find((x) => x.id === id);
+    if (!p) return;
+    fill(p);
+    if (!modal.open) modal.showModal();
+    const shell = modal.querySelector<HTMLElement>(".g-shell")!;
+    shell.scrollTop = 0;
+    shell.focus({ preventScroll: true });
+    if (push) history.replaceState(null, "", `#${id}`);
+  }
+  function step(d: number) {
+    if (!current) return;
+    const i = filtered.indexOf(current) + d;
+    if (i >= 0 && i < filtered.length) open(filtered[i].id);
+  }
+  grid.addEventListener("click", (e) => {
+    const c = (e.target as HTMLElement).closest<HTMLElement>(".g-card");
+    if (c?.dataset.id) open(c.dataset.id);
+  });
+  grid.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const c = (e.target as HTMLElement).closest<HTMLElement>(".g-card");
+    if (c?.dataset.id) {
+      e.preventDefault();
+      open(c.dataset.id);
+    }
+  });
+  $("g-close").addEventListener("click", () => modal.close());
+  $("g-prev").addEventListener("click", () => step(-1));
+  $("g-next").addEventListener("click", () => step(1));
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.close();
+  });
+  modal.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+  modal.addEventListener("close", () => {
+    current = null;
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  });
+
+  render();
+  const initial = decodeURIComponent(location.hash.slice(1));
+  if (initial) open(initial, false);
+  window.addEventListener("hashchange", () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (id) open(id, false);
+  });
+</script>

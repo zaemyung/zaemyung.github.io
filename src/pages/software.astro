@@ -1,0 +1,65 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import { loadYaml } from "../lib/data";
+
+interface Soft {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  url: string | null;
+  category: string;
+  body_html: string | null;
+}
+const items = loadYaml<Soft[]>("software.yml");
+const cats = [
+  { key: "current", label: "Current" },
+  { key: "past", label: "Past" },
+];
+---
+
+<Base title="Software" description="Software, demos, and side projects by Zae Myung Kim.">
+  <header class="page-head">
+    <h1>Software <em>&amp;</em> projects</h1>
+    <p class="sub">Tools, demos, and side projects. Collaborations are welcome.</p>
+  </header>
+  {
+    cats.map((c) => {
+      const list = items.filter((i) => i.category === c.key);
+      if (list.length === 0) return null;
+      return (
+        <section class="section">
+          <div class="section-head">
+            <h2>{c.label}</h2>
+          </div>
+          <div class="card-grid">
+            {list.map((i) => (
+              <a class="card" href={i.url ?? "#"} target={i.url ? "_blank" : undefined} rel="noopener">
+                <div class="media">
+                  <img src={`/${i.image}`} alt="" loading="lazy" />
+                </div>
+                <div class="body">
+                  <h3>{i.title}</h3>
+                  <p>{i.description}</p>
+                  <div class="foot">
+                    <span class="chip filled">
+                      {i.url?.includes("github.com")
+                        ? "GitHub"
+                        : i.url
+                          ? new URL(i.url).hostname.replace(/^www\./, "")
+                          : "Project"}
+                    </span>
+                    <span class="muted" style="margin-left:auto; display:inline-flex">
+                      <Icon name="external" size={14} />
+                    </span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      );
+    })
+  }
+</Base>

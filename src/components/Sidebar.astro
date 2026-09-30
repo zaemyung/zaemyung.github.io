@@ -1,0 +1,107 @@
+---
+import Icon from "./Icon.astro";
+import NewsList from "./NewsList.astro";
+import { loadYaml, formatYm, type Profile, type NewsItem } from "../lib/data";
+
+const profile = loadYaml<Profile>("profile.yml");
+const news = loadYaml<NewsItem[]>("news.yml");
+interface Exp {
+  role: string;
+  org: string;
+  location: string;
+  start: string;
+  end: string | null;
+}
+interface Edu {
+  degree: string;
+  school: string;
+  start: string;
+  end: string;
+  expected: boolean;
+}
+const exp = loadYaml<Exp[]>("experience.yml");
+const edu = loadYaml<Edu[]>("education.yml");
+const today = new Date().toISOString().slice(0, 7);
+const isCurrent = (start: string, end: string | null) => start <= today && (!end || end >= today);
+const now = [
+  ...edu
+    .filter((d) => d.expected || isCurrent(d.start, d.end))
+    .map((d) => ({
+      role: "Ph.D. candidate",
+      where: d.school.replace(/\s*Twin Cities$/, ""),
+      when: `${formatYm(d.start)} – ${formatYm(d.end)}${d.expected ? " (expected)" : ""}`,
+    })),
+  ...exp
+    .filter((e) => isCurrent(e.start, e.end))
+    .map((e) => ({ role: e.role, where: `${e.org}, ${e.location}`, when: `${formatYm(e.start)} – ${formatYm(e.end)}` })),
+];
+---
+
+<aside class="sidebar">
+  <div class="identity">
+    <img class="photo" src={profile.photo} alt={profile.name} width="168" height="168" />
+    <h2>{profile.name}</h2>
+    {profile.name_native && <div class="native">{profile.name_native}</div>}
+    <div class="lines">
+      <div>{profile.title}</div>
+      <div>{profile.department}</div>
+      <div><a href="https://twin-cities.umn.edu/">{profile.affiliation}</a></div>
+      <div>{profile.location}</div>
+    </div>
+    <ul class="socials">
+      {
+        profile.socials.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              title={s.label}
+              aria-label={s.label}
+              target={s.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel="noopener"
+            >
+              <Icon name={s.icon} size={17} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  {
+    now.length > 0 && (
+      <div class="side-block">
+        <div class="label">Now</div>
+        <ul class="now">
+          {now.map((n) => (
+            <li title={`${n.role} at ${n.where}`}>
+              <b>{n.role}</b> at {n.where}
+              <span class="when">{n.when}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  <div class="side-block">
+    <div class="label">Affiliations</div>
+    <div class="pills">
+      {
+        profile.affiliations.map((a) =>
+          a.href ? (
+            <a class="chip" href={a.href} target="_blank" rel="noopener">
+              {a.label}
+            </a>
+          ) : (
+            <span class="chip">{a.label}</span>
+          ),
+        )
+      }
+    </div>
+  </div>
+
+  <div class="side-block">
+    <div class="label">News <a class="more" href="/news/">all →</a></div>
+    <NewsList items={news} limit={5} />
+  </div>
+</aside>

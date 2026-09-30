@@ -1,0 +1,27 @@
+---
+import Icon from "./Icon.astro";
+import { loadYaml, type Profile } from "../lib/data";
+const p = loadYaml<Profile>("profile.yml");
+---
+
+<section class="hero">
+  <h1 class="name">{p.name}</h1>
+  <p class="role">{p.role_line}</p>
+  <p class="thesis" set:html={p.thesis} />
+  {p.lead.map((para) => <p class="lead" set:html={para} />)}
+  <div class="cta">
+    {
+      p.cta.map((c) => (
+        <a
+          class:list={["btn", { primary: c.primary }]}
+          href={c.href}
+          target={c.external ? "_blank" : undefined}
+          rel={c.external ? "noopener" : undefined}
+        >
+          {c.icon && <Icon name={c.icon} size={14} />}
+          {c.label}
+        </a>
+      ))
+    }
+  </div>
+</section>

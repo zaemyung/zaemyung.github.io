@@ -1,0 +1,49 @@
+# Mentorship (from My_CV.pdf, newest first). now is null when the CV lists no current position.
+- name: Shady Ali
+  program: BS in Computer Science
+  school: University of Minnesota
+  start: Summer 2026
+  end: Present
+  now: null
+- name: Yuxin Chen
+  program: BS in Computer Science
+  school: University of Minnesota
+  start: Summer 2025
+  end: Spring 2026
+  now: MS in Computer Science, University of Texas at Austin
+- name: Yangfan He
+  program: BS in Computer Science
+  school: University of Minnesota
+  start: Spring 2025
+  end: Spring 2025
+  now: null
+- name: Robert Jia
+  program: BS in Computer Science
+  school: University of Minnesota
+  start: Spring 2024
+  end: Spring 2025
+  now: Software Engineer at Microsoft
+- name: Bin Hu
+  program: BS in Computer Science
+  school: University of Minnesota
+  start: Summer 2024
+  end: Spring 2025
+  now: MS in Computer Science, University of Maryland
+- name: Ryan Koo
+  program: MS in Computer Science
+  school: University of Minnesota
+  start: Spring 2024
+  end: Spring 2025
+  now: Software Engineer at Amazon
+- name: Preston Zhu
+  program: BS in Computer Science
+  school: University of Minnesota
+  start: Fall 2023
+  end: Spring 2024
+  now: Software Engineer at Meta
+- name: Josh Spitzer-Resnick
+  program: MS in Computer Science
+  school: University of Minnesota
+  start: Spring 2022
+  end: Spring 2022
+  now: Solventum Healthcare

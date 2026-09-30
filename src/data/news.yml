@@ -1,0 +1,35 @@
+# News items converted from Jekyll _news/*.md (newest first). html is an inline fragment, not wrapped in <p>.
+- date: "2026-09-30"
+  html: 'Our work "Meta^n" 🔁 on <a href="https://arxiv.org/abs/2608.24735" target="_blank" rel="noopener">recursive self-improvement through emergent depth</a> is accepted to appear at <a href="https://neurips.cc/" target="_blank" rel="noopener">NeurIPS 2026</a>. Check out the <a href="https://arxiv.org/abs/2608.24735" target="_blank" rel="noopener">paper</a> and <a href="https://github.com/minnesotanlp/meta-n" target="_blank" rel="noopener">code</a>!'
+- date: "2026-08-05"
+  html: I am excited to be joining <a href="https://aws.amazon.com/" target="_blank" rel="noopener">Amazon AWS</a> as a research intern this fall, from September to December 2026.
+- date: "2026-05-14"
+  html: 'New preprint: "Structure Liberates" 🧠 investigates how constrained sensemaking produces more novel research output. Check out our <a href="https://minnesotanlp.github.io/SciSense" target="_blank" rel="noopener">project page</a>!'
+- date: "2026-04-16"
+  html: 'New preprint: "The Amazing Agent Race" 🏁 explores how AI agents excel at tool use but struggle with navigation. Check out our <a href="https://minnesotanlp.github.io/the-amazing-agent-race/" target="_blank" rel="noopener">project page</a>!'
+- date: "2025-11-08"
+  html: 'My internship project at Amazon AGI, "Align to Structure", has been accepted for presentation at <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank" rel="noopener">AAAI 2026</a>. Check out the <a href="https://ojs.aaai.org/index.php/AAAI/article/view/41085" target="_blank" rel="noopener">paper</a>!'
+- date: "2025-05-01"
+  html: I am honored to receive the Doctoral Dissertation Fellowship from the University of Minnesota, which will enable me to fully dedicate my time to advancing and completing my thesis research.
+- date: "2024-06-15"
+  html: Our <a href="https://arxiv.org/abs/2402.10586" target="_blank" rel="noopener">research</a> on differentiating between machine-generated and human-authored texts through the analysis of "discourse motifs" is accepted to appear at ACL 2024.
+- date: "2024-06-13"
+  html: I am thrilled to be interning at Amazon AGI this summer where I will be working on model alignment with discourse signals.
+- date: "2023-09-25"
+  html: I completed my summer internship at <a href="https://www.salesforce.org" target="_blank" rel="noopener">Salesforce</a> on developing a challenging benchmark dataset for paper citation task for large language models.
+- date: "2022-10-06"
+  html: My summer internship work at <a href="https://www.grammarly.com/" target="_blank" rel="noopener">Grammarly</a> on improving iterative text revision task is accepted to appear at EMNLP 2022.
+- date: "2022-05-26"
+  html: Our work on <a href="https://www.youtube.com/watch?v=myBJiAl2jcg" target="_blank" rel="noopener">system demonstration</a> for interactive and iterative text revision was shared in In2Writing workshop at ACL 2022 and received best paper award 🎉.
+- date: "2022-05-23"
+  html: Our work on <a href="https://aclanthology.org/2022.acl-long.250/" target="_blank" rel="noopener">iterative text revision</a> was accepted at ACL 2022.
+- date: "2022-04-22"
+  html: I am excited for my summer internship at <a href="https://www.grammarly.com/" target="_blank" rel="noopener">Grammarly</a> where I will be working on interactive and iterative text revision task.
+- date: "2021-11-11"
+  html: Our work on <a href="https://aclanthology.org/2021.codi-main.16/" target="_blank" rel="noopener">visualization of cross-lingual discourse relations</a> was shared in <a href="https://sites.google.com/view/codi-2021" target="_blank" rel="noopener">CODI workshop</a> at EMNLP 2021.
+- date: "2021-08-01"
+  html: Our work on <a href="https://aclanthology.org/2021.findings-acl.250/" target="_blank" rel="noopener">analysis of multilingual representation in NMT</a> was accepted at Findings of ACL 2021.
+- date: "2020-11-20"
+  html: Our work on <a href="https://aclanthology.org/2020.wmt-1.113/" target="_blank" rel="noopener">quality estimation</a> for NMT models was accepted at <a href="https://www.statmt.org/wmt20/index.html" target="_blank" rel="noopener">WMT 2020</a>.
+- date: "2020-11-20"
+  html: Our work on <a href="https://aclanthology.org/2020.nlpcovid19-2.16/" target="_blank" rel="noopener">multilingual NMT model</a> was shared in NLP-COVID19 workshop at EMNLP 2020.

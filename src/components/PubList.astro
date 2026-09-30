@@ -1,0 +1,98 @@
+---
+import PubEntry from "./PubEntry.astro";
+import { groupByYear, groupByTopic, TOPICS, type Paper } from "../lib/data";
+interface Props {
+  papers: Paper[];
+}
+const { papers } = Astro.props;
+const byYear = groupByYear(papers);
+const byTopic = groupByTopic(papers);
+---
+
+<div class="pub-controls">
+  <div class="seg" role="group" aria-label="Group publications">
+    <button type="button" data-mode="year" aria-pressed="true">By year</button>
+    <button type="button" data-mode="topic" aria-pressed="false">By topic</button>
+  </div>
+  <span class="spacer"></span>
+  <div class="topics">
+    {
+      byTopic.map((g) => (
+        <a class="chip" data-topic={g.topic} href={`#topic-${g.topic}`} data-jump="topic">
+          {TOPICS[g.topic].label}
+        </a>
+      ))
+    }
+  </div>
+</div>
+<nav class="year-jump" id="year-jump" aria-label="Jump to year">
+  {byYear.map((g) => <a href={`#y-${g.year}`}>{g.year}</a>)}
+</nav>
+
+<div id="by-year">
+  {
+    byYear.map((g) => (
+      <section class="pub-group" id={`y-${g.year}`}>
+        <h2>
+          {g.year}
+          <span class="n">
+            {g.papers.length} {g.papers.length === 1 ? "paper" : "papers"}
+          </span>
+        </h2>
+        <ul class="pub-list">
+          {g.papers.map((p) => (
+            <PubEntry paper={p} />
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+<div id="by-topic" hidden>
+  {
+    byTopic.map((g) => (
+      <section class="pub-group" id={`topic-${g.topic}`}>
+        <h2 class="topic-h" data-topic={g.topic}>
+          <span class="dot" />
+          {TOPICS[g.topic].label}
+          <span class="n">{TOPICS[g.topic].blurb}</span>
+        </h2>
+        <ul class="pub-list">
+          {g.papers.map((p) => (
+            <PubEntry paper={p} anchor={false} />
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</div>
+
+<script>
+  const seg = document.querySelector<HTMLElement>(".seg")!;
+  const byYear = document.getElementById("by-year")!;
+  const byTopic = document.getElementById("by-topic")!;
+  const jump = document.getElementById("year-jump")!;
+  function setMode(mode: string) {
+    byYear.hidden = mode !== "year";
+    byTopic.hidden = mode !== "topic";
+    jump.hidden = mode !== "year";
+    seg.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)));
+    try {
+      localStorage.setItem("pub-mode", mode);
+    } catch {}
+  }
+  seg.addEventListener("click", (e) => {
+    const b = (e.target as HTMLElement).closest("button");
+    if (b?.dataset.mode) setMode(b.dataset.mode);
+  });
+  document.querySelectorAll('[data-jump="topic"]').forEach((a) => a.addEventListener("click", () => setMode("topic")));
+  let initial = "year";
+  if (location.hash.startsWith("#topic-")) initial = "topic";
+  else {
+    try {
+      initial = localStorage.getItem("pub-mode") || "year";
+    } catch {}
+  }
+  setMode(initial);
+  if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+</script>

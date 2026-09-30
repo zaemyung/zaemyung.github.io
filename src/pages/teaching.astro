@@ -1,0 +1,117 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadYaml, formatDate } from "../lib/data";
+
+interface Talk {
+  date: string;
+  kind: string;
+  host: string;
+  title: string;
+  description: string;
+}
+interface Course {
+  term: string;
+  role: string;
+  course: string;
+  org: string | null;
+  lectures: { date: string; title: string }[];
+}
+interface Mentee {
+  name: string;
+  program: string;
+  school: string;
+  start: string;
+  end: string;
+  now: string | null;
+}
+
+const talks = loadYaml<Talk[]>("talks.yml");
+const teaching = loadYaml<Course[]>("teaching.yml");
+const mentees = loadYaml<Mentee[]>("mentees.yml");
+---
+
+<Base title="Teaching & Talks" description="Invited talks, teaching, and mentoring by Zae Myung Kim.">
+  <header class="page-head">
+    <h1>Teaching <em>&amp;</em> Talks</h1>
+    <p class="sub">Invited talks, courses I have taught or assisted, and students I have mentored.</p>
+  </header>
+
+  <section class="section" id="talks">
+    <div class="section-head"><h2>Invited talks</h2></div>
+    <div class="rows">
+      {
+        talks.map((t) => (
+          <div class="row">
+            <div class="key">{formatDate(t.date)}</div>
+            <div class="body">
+              <div class="t">{t.title}</div>
+              <div class="s">
+                {t.kind} · {t.host}
+              </div>
+              {t.description && !t.description.includes(t.title) && <div class="d">{t.description}</div>}
+              {t.links && (
+                <div class="links">
+                  {Object.entries(t.links).map(([k, href]) => (
+                    <a class="link-pill" data-kind={k} href={href} target="_blank" rel="noopener">
+                      {k}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section" id="teaching">
+    <div class="section-head"><h2>Teaching</h2></div>
+    <div class="rows">
+      {
+        teaching.map((c) => (
+          <div class="row">
+            <div class="key">{c.term}</div>
+            <div class="body">
+              <div class="t">{c.course}</div>
+              <div class="s">{[c.role, c.org].filter(Boolean).join(" · ")}</div>
+              {c.lectures.length > 0 && (
+                <ul>
+                  {c.lectures.map((l) => (
+                    <li>
+                      Guest lecture, {formatDate(l.date)}: <em>{l.title}</em>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section" id="mentees">
+    <div class="section-head"><h2>Mentees</h2></div>
+    <div class="rows">
+      {
+        mentees.map((m) => (
+          <div class="row">
+            <div class="key">{m.start === m.end ? m.start : `${m.start} – ${m.end}`}</div>
+            <div class="body">
+              <div class="t">{m.name}</div>
+              <div class="s">
+                {m.program}, {m.school}
+              </div>
+              {m.now && (
+                <div class="arrow">
+                  Now: <b>{m.now}</b>
+                </div>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>

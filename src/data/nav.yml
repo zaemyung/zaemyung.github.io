@@ -1,0 +1,19 @@
+# Site navigation. Order matters. Add a tab by adding an entry here and a page under src/pages/.
+- label: Home
+  href: /
+- label: Publications
+  href: /publications/
+- label: Gallery
+  href: /gallery/
+- label: Teaching & Talks
+  href: /teaching/
+- label: Software
+  href: /software/
+- label: Blog
+  href: /blog/
+- label: CV
+  href: /pdf/My_CV.pdf
+  external: true
+- label: Minnesota NLP
+  href: https://minnesotanlp.github.io/
+  external: true

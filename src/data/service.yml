@@ -1,0 +1,42 @@
+# Academic services (from My_CV.pdf, newest first). One entry per CV year row.
+- year: 2027
+  items:
+    - AAAI 2027 (PC)
+    - ICLR 2027 (Reviewer)
+- year: 2026
+  items:
+    - ICML 2026 (Gold Reviewer)
+    - ICLR 2026 (Reviewer)
+    - COLM 2026 (Reviewer)
+    - NeurIPS 2026 (Reviewer)
+    - EMNLP 2026 (Reviewer)
+    - PLOS One (Reviewer)
+    - Expert Systems with Applications (Reviewer)
+- year: 2025
+  items:
+    - AAAI 2026 (PC)
+    - ACL 2025 (Reviewer)
+    - NeurIPS 2025 (Reviewer)
+- year: 2024
+  items:
+    - AAAI 2024 (PC)
+    - 7th IWDS (PC)
+    - Knowledge-Based Systems (Reviewer)
+    - NAACL 2024 (Reviewer)
+- year: 2023
+  items:
+    - EMNLP 2023 (Reviewer)
+    - 6th IWDS (PC)
+- year: 2022
+  items:
+    - 5th IWDS (PC)
+- year: 2021
+  items:
+    - 4th IWDS (PC)
+- year: 2020
+  items:
+    - IEEE Access (Reviewer)
+    - NLP-COVID19 Workshop at EMNLP 2020 (Reviewer)
+- year: 2019
+  items:
+    - 2nd International Workshop on Dialog Systems (IWDS) (PC)

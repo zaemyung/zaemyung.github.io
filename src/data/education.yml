@@ -1,0 +1,30 @@
+# Education (from My_CV.pdf). start/end are YYYY-MM strings.
+- degree: PhD in Computer Science
+  school: University of Minnesota Twin Cities
+  location: Minneapolis, MN
+  start: "2022-09"
+  end: "2027-03"
+  expected: true
+  thesis: Meta-Scaffolding for Large Language Models (tentative)
+  advisor: Dongyeop Kang
+  notes: []
+- degree: MS in Computer Science
+  school: Korea Advanced Institute of Science and Technology (KAIST)
+  location: Daejeon, Korea
+  start: "2014-09"
+  end: "2016-08"
+  expected: false
+  thesis: Classifying Travel-Related Intents in Textual Data Using Recurrent Neural Networks
+  advisor: Ho-Jin Choi
+  notes: []
+- degree: BEng in Computer Science
+  school: Imperial College London
+  location: London, UK
+  start: "2008-10"
+  end: "2011-08"
+  expected: false
+  thesis: null
+  advisor: null
+  notes:
+    - 'Group Project: Intention Recognition in Ambient Homes'
+    - 'Individual Project: Computing Fictitious Plays in Graph-Based Games'

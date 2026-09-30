@@ -1,0 +1,78 @@
+---
+import { authorsHtml, primaryTopic, type Paper } from "../lib/data";
+interface Props {
+  paper: Paper;
+  thumb?: boolean;
+  tldr?: boolean;
+  abstract?: boolean;
+  anchor?: boolean;
+}
+const { paper: p, thumb = false, tldr = false, abstract = true, anchor = true } = Astro.props;
+const topic = primaryTopic(p);
+const galleryHref = `/gallery/#${p.id}`;
+const paperHref = p.links?.paper ?? null;
+const linkOrder = ["paper", "code", "project", "demo", "data", "video", "slides", "poster"] as const;
+const links = linkOrder.filter((k) => p.links?.[k]).map((k) => ({ k, href: p.links![k]! }));
+---
+
+<li class:list={["pub", { "with-thumb": thumb }]} id={anchor ? p.id : undefined} data-topic={topic}>
+  {
+    thumb &&
+      (p.preview ? (
+        <a class="thumb" href={galleryHref} aria-label={`Open “${p.title}” in the gallery`}>
+          <img src={`/${p.preview}`} alt="" loading="lazy" />
+        </a>
+      ) : (
+        <a class="thumb placeholder" href={galleryHref} aria-label={`Open “${p.title}” in the gallery`}>
+          {p.venue}
+        </a>
+      ))
+  }
+  <div class="title">
+    <a
+      href={paperHref ?? galleryHref}
+      target={paperHref ? "_blank" : undefined}
+      rel={paperHref ? "noopener" : undefined}>
+      {p.title}
+    </a>
+  </div>
+  <div class="authors" set:html={authorsHtml(p.authors)} />
+  <div class="meta">
+    <span class="venue">{p.venue} {p.year}</span>
+    {
+      p.status === "under review" && (
+        <>
+          <span class="sep">·</span>
+          <span class="status">under review</span>
+        </>
+      )
+    }
+    {p.note && <span class="note award">{p.note}</span>}
+    {
+      links.length > 0 && (
+        <>
+          <span class="sep">·</span>
+          <span class="links">
+            {links.map((l) => (
+              <a class="link-pill" data-kind={l.k} href={l.href} target="_blank" rel="noopener">
+                {l.k}
+              </a>
+            ))}
+            <a class="link-pill" data-kind="gallery" href={galleryHref} title="Open in the research gallery">
+              gallery
+            </a>
+          </span>
+        </>
+      )
+    }
+  </div>
+  {tldr && p.tldr && <div class="tldr">{p.tldr}</div>}
+  {
+    abstract && p.abstract && (
+      <details>
+        <summary>Abstract</summary>
+        <div class="abstract">{p.abstract}</div>
+      </details>
+    )
+  }
+</li>

@@ -1,0 +1,59 @@
+---
+import { loadYaml, type NavItem, type Profile } from "../lib/data";
+import Icon from "./Icon.astro";
+
+const nav = loadYaml<NavItem[]>("nav.yml");
+const profile = loadYaml<Profile>("profile.yml");
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+function isCurrent(href: string) {
+  const h = href.replace(/\/+$/, "") || "/";
+  return h === "/" ? path === "/" : path === h || path.startsWith(h + "/");
+}
+---
+
+<header class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="/">{profile.name}</a>
+    <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <Icon name="menu" />
+    </button>
+    <ul class="nav-links" id="nav-links">
+      {
+        nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[{ ext: item.external }]}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener" : undefined}
+              aria-current={!item.external && isCurrent(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span class="sun"><Icon name="sun" /></span>
+      <span class="moon"><Icon name="moon" /></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById("site-nav")!;
+  const toggle = nav.querySelector<HTMLButtonElement>(".nav-toggle")!;
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  document.getElementById("theme-toggle")!.addEventListener("click", () => {
+    const root = document.documentElement;
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+  });
+</script>

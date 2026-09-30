@@ -1,0 +1,333 @@
+/* Research gallery */
+.g-controls {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.g-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: var(--card);
+  color: var(--muted);
+}
+.g-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+}
+.g-search input::placeholder {
+  color: var(--muted);
+}
+.g-search .count {
+  white-space: nowrap;
+}
+.g-filters {
+  display: grid;
+  gap: 6px;
+}
+.g-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+.g-group .g-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 58px;
+}
+.g-chip {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  color: var(--ink-soft);
+  cursor: pointer;
+  line-height: 1.5;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.g-chip:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.g-chip.on {
+  background: var(--primary);
+  color: var(--primary-ink);
+  border-color: var(--primary);
+}
+.g-chip[data-topic]::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tc);
+}
+.g-chip .n {
+  opacity: 0.6;
+}
+.g-toggles {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.g-toggles label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.g-toggles .btn {
+  padding: 5px 12px;
+  font-size: 0.8rem;
+}
+
+.g-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+.g-grid.dense {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.g-grid.dense .g-tldr,
+.g-grid.dense .g-authors {
+  display: none;
+}
+.g-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.g-card:hover,
+.g-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--line-strong);
+}
+.g-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+}
+.g-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.35s ease;
+}
+.g-card:hover .g-media img {
+  transform: scale(1.03);
+}
+.g-ph {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  text-align: center;
+  color: var(--chip-ink);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.25;
+  background: linear-gradient(
+    135deg,
+    var(--tc, var(--muted)),
+    color-mix(in srgb, var(--tc, var(--muted)) 45%, var(--bg))
+  );
+}
+.g-body {
+  padding: 12px 14px 14px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  flex: 1;
+}
+.g-card h3 {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+.g-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.g-authors {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.g-authors .me {
+  color: var(--ink);
+  font-weight: 600;
+}
+.g-tldr {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.g-foot {
+  margin-top: auto;
+  padding-top: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.g-empty {
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* modal */
+.g-modal {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  width: min(980px, 94vw);
+  max-width: none;
+  max-height: none;
+  margin: auto;
+}
+.g-modal::backdrop {
+  background: rgba(12, 10, 16, 0.55);
+  backdrop-filter: blur(6px);
+}
+.g-shell {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  max-height: 88vh;
+  overflow: auto;
+}
+.g-mtop {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 20px 12px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+.g-mtop h2 {
+  flex: 1;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.g-mtop .g-meta {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.g-mnav {
+  display: flex;
+  gap: 6px;
+}
+.g-mbody {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 18px 20px 22px;
+}
+@media (max-width: 760px) {
+  .g-mbody {
+    grid-template-columns: 1fr;
+  }
+}
+.g-mhero img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+.g-msec + .g-msec {
+  margin-top: 18px;
+}
+.g-msec .t {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.g-abstract {
+  font-size: 0.93rem;
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+.g-tldr-big {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.g-authors-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.g-authors-list .me {
+  font-weight: 600;
+}
+.g-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

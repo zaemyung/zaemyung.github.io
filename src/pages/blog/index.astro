@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+const posts = (await getCollection("blog"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
+---
+
+<Base title="Blog" description="Spaghetti thoughts, occasionally plated. Notes by Zae Myung Kim.">
+  <header class="page-head">
+    <div class="eyebrow">{posts.length} {posts.length === 1 ? "post" : "posts"}</div>
+    <h1>Blog</h1>
+    <p class="sub">Spaghetti thoughts, occasionally plated.</p>
+  </header>
+  <div class="rows">
+    {
+      posts.map((p) => (
+        <div class="row">
+          <div class="key">{fmt(p.data.date)}</div>
+          <div class="body">
+            <div class="t">
+              <a href={`/blog/${p.id}/`}>{p.data.title}</a>
+            </div>
+            {p.data.description && <div class="s">{p.data.description}</div>}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Base>

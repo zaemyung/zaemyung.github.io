@@ -1,0 +1,21 @@
+---
+import { formatDate, formatMy, type NewsItem } from "../lib/data";
+interface Props {
+  items: NewsItem[];
+  limit?: number;
+  full?: boolean;
+}
+const { items, limit, full = false } = Astro.props;
+const shown = limit ? items.slice(0, limit) : items;
+---
+
+<ul class:list={["news", { full }]}>
+  {
+    shown.map((n) => (
+      <li>
+        <time datetime={n.date}>{full ? formatDate(n.date, "long") : formatMy(n.date)}</time>
+        <div class="body" set:html={n.html} />
+      </li>
+    ))
+  }
+</ul>

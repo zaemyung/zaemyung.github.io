@@ -1,0 +1,87 @@
+# Professional employment (from My_CV.pdf, newest first). start/end are YYYY-MM strings; end is null while ongoing.
+- role: Research Intern
+  org: Amazon AWS
+  location: Seattle, WA
+  start: "2026-09"
+  end: "2026-12"
+  bullets:
+    - Developing a metric recommendation system for Amazon EC2 ASG using time-series and heterogeneous data streams.
+- role: Research Intern
+  org: Amazon AGI
+  location: Bellevue, WA
+  start: "2024-06"
+  end: "2024-11"
+  bullets:
+    - Proposed and developed structural alignment of LLMs for long-form generation.
+- role: Research Intern
+  org: Salesforce AI Research
+  location: Palo Alto, CA
+  start: "2023-05"
+  end: "2023-09"
+  bullets:
+    - Implemented a large-scale challenging benchmarking system for scientific-paper retrieval.
+    - Built a co-writing system with large language models for scientific writing.
+- role: Research Intern
+  org: Grammarly
+  location: Remote
+  start: "2022-04"
+  end: "2022-07"
+  bullets:
+    - Developed a human-in-the-loop iterative text-revision system.
+    - Trained span-based text-revision models with data augmentation.
+- role: ML Researcher
+  org: Naver Labs Europe
+  location: Meylan, France
+  start: "2020-10"
+  end: "2022-02"
+  bullets:
+    - Studied language-specific representations in multilingual NMT.
+    - Conducted cross-lingual discourse analysis for document-level NMT.
+- role: ML Researcher
+  org: Papago, Naver Corp.
+  location: Seongnam, Korea
+  start: "2017-03"
+  end: "2020-09"
+  bullets:
+    - Developed machine translation models for Thai–Korean and German–Korean pairs.
+    - 'Implemented tools for NMT: sentence-segmenter, corpus pre-processor, aligner, and crawler.'
+    - Created website-translation service using NMT + heuristic attention.
+    - Ranked 1st (doc-level) and 4th (sent-level) at WMT20 quality estimation shared task.
+- role: Invited Researcher
+  org: KEAI Lab, KAIST
+  location: Daejeon, Korea
+  start: "2016-12"
+  end: "2017-02"
+  bullets:
+    - Built an adaptive vocabulary learning app using learner interest profiles.
+    - "Developed a healthcare app that recommends Pokémon Go events by forecasting users' physical activity patterns using recurrent neural network."
+- role: Research Intern
+  org: Naver Labs Corp.
+  location: Seongnam, Korea
+  start: "2016-09"
+  end: "2016-11"
+  bullets:
+    - Researched extending named entity recognition for Korean with hierarchical categories.
+- role: Research Assistant
+  org: Samsung–KAIST Initiative
+  location: Daejeon, Korea
+  start: "2014-04"
+  end: "2016-07"
+  bullets:
+    - '[1st Year] Intent classification for travel-service personalization.'
+    - '[2nd Year] Modeled long-term activeness using RNNs for wellness prediction.'
+- role: Research Intern
+  org: KEAI Lab, KAIST
+  location: Daejeon, Korea
+  start: "2013-12"
+  end: "2014-09"
+  bullets:
+    - Surveyed plan and intention recognition.
+    - Researched temporal information extraction for English and Korean.
+- role: Military Service
+  org: Special Warfare Command, ROK Army
+  location: Incheon, Korea
+  start: "2012-01"
+  end: "2013-10"
+  bullets:
+    - Served as an army interpreter, aviation image analyst, and squad leader.

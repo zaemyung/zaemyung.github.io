@@ -1,0 +1,43 @@
+---
+import { loadYaml, allPapers, findPaper, type Profile } from "../lib/data";
+const p = loadYaml<Profile>("profile.yml");
+const papers = allPapers();
+const topicOf: Record<string, string> = {
+  Structure: "structure",
+  Metacognition: "metacognition",
+  Collaboration: "collaboration",
+  Multilingual: "multilingual",
+};
+---
+
+<section class="pillars">
+  <h2>Current research <em>focus</em></h2>
+  <div class="pillar-grid">
+    {
+      p.pillars.map((pl) => {
+        const t = topicOf[pl.tag] ?? "others";
+        return (
+          <article class="pillar" data-topic={t} style="--pillar-color: var(--tc)">
+            <div class="pillar-top">
+              <span class="pillar-num">{pl.num}</span>
+              <span class="pillar-tag">{pl.tag}</span>
+            </div>
+            <h3>{pl.heading}</h3>
+            <p>{pl.blurb}</p>
+            <div class="chips">
+              {pl.papers.map((c) => {
+                const paper = findPaper(papers, c.match);
+                const href = paper ? `/gallery/#${paper.id}` : "/publications/";
+                return (
+                  <a class="chip" href={href} title={paper?.title ?? c.label}>
+                    {c.label}
+                  </a>
+                );
+              })}
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
+</section>
