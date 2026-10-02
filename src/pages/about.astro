@@ -1,0 +1,170 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import { getEntry, render } from "astro:content";
+import {
+  loadYaml,
+  formatYm,
+  type Profile,
+  type Experience,
+  type Education,
+  type Award,
+  type ServiceYear,
+} from "../lib/data";
+
+const profile = loadYaml<Profile>("profile.yml");
+const experience = loadYaml<Experience[]>("experience.yml");
+const education = loadYaml<Education[]>("education.yml");
+const awards = loadYaml<Award[]>("awards.yml");
+const service = loadYaml<ServiceYear[]>("service.yml");
+const bio = await getEntry("pages", "bio");
+const { Content: Bio } = bio ? await render(bio) : { Content: null };
+const period = (start: string, end: string | null) => `${formatYm(start)} – ${formatYm(end)}`;
+const scholar = profile.socials.find((x) => x.icon === "scholar");
+---
+
+<Base
+  progress
+  title="About"
+  description={`Bio, experience, education, honors, and academic service of ${profile.name}.`}
+>
+  <header class="page-head">
+    <h1>About</h1>
+    <p class="sub">Bio, experience, education, honors, and academic service, all from the same data as the PDF CV.</p>
+    <div class="actions">
+      <a class="btn primary" href={profile.cv} target="_blank" rel="noopener">
+        <Icon name="file" size={14} />
+        Download CV (PDF)
+      </a>
+      {
+        scholar && (
+          <a class="btn" href={scholar.href} target="_blank" rel="noopener">
+            <Icon name="scholar" size={14} />
+            Google Scholar
+          </a>
+        )
+      }
+      <a class="btn" href="#experience">Experience</a>
+      <a class="btn" href="#education">Education</a>
+      <a class="btn" href="#awards">Honors</a>
+      <a class="btn" href="#service">Service</a>
+    </div>
+  </header>
+
+  {
+    Bio && (
+      <section class="prose about-bio" id="bio">
+        <Bio />
+      </section>
+    )
+  }
+
+  <section class="section" id="experience">
+    <div class="section-head"><h2>Experience</h2></div>
+    <div class="rows">
+      {
+        experience.map((e) => (
+          <div class="row">
+            <div class="key">{period(e.start, e.end)}</div>
+            <div class="body">
+              <div class="t">
+                {e.role} at{" "}
+                {e.url ? (
+                  <a href={e.url} target="_blank" rel="noopener">
+                    {e.org}
+                  </a>
+                ) : (
+                  e.org
+                )}
+              </div>
+              <div class="s">{e.location}</div>
+              {e.bullets && e.bullets.length > 0 && (
+                <ul>
+                  {e.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="section-head"><h2>Education</h2></div>
+    <div class="rows">
+      {
+        education.map((d) => (
+          <div class="row">
+            <div class="key">{period(d.start, d.end)}</div>
+            <div class="body">
+              <div class="t">
+                {d.degree}
+                {d.expected && " (expected)"}
+              </div>
+              <div class="s">
+                {d.url ? (
+                  <a href={d.url} target="_blank" rel="noopener">
+                    {d.school}
+                  </a>
+                ) : (
+                  d.school
+                )}
+                {" · "}
+                {d.location}
+              </div>
+              {d.thesis && (
+                <div class="d">
+                  Thesis: <em>{d.thesis}</em>
+                  {d.advisor && ` · Advisor: ${d.advisor}`}
+                </div>
+              )}
+              {d.notes && d.notes.length > 0 && (
+                <ul>
+                  {d.notes.map((n) => (
+                    <li>{n}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section" id="awards">
+    <div class="section-head"><h2>Honors <em>&amp;</em> awards</h2></div>
+    <div class="rows">
+      {
+        awards.map((a) => (
+          <div class="row">
+            <div class="key">{a.year}</div>
+            <div class="body">
+              <div class="t">{a.title}</div>
+              <div class="s">{a.org}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section" id="service">
+    <div class="section-head"><h2>Academic service</h2></div>
+    <div class="rows">
+      {
+        service.map((y) => (
+          <div class="row">
+            <div class="key">{y.year}</div>
+            <div class="body">
+              <div class="d">{y.items.join(" · ")}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>

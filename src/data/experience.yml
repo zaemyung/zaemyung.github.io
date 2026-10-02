@@ -1,7 +1,11 @@
 # Professional employment (from My_CV.pdf, newest first). start/end are YYYY-MM strings; end is null while ongoing.
 # `tz` (optional, IANA name) adds a live clock to the sidebar while the position is current.
+# `url` links the organisation name; `highlight: true` shows the position as a sidebar chip: under Affiliations while
+# current, under Previously once ended (one chip per organisation, labelled by `short` when `org` is too long).
 - role: Research Intern
   org: Amazon AWS
+  url: https://aws.amazon.com/
+  highlight: true
   location: Seattle, WA
   tz: America/Los_Angeles
   start: "2026-09"
@@ -10,6 +14,8 @@
     - Developing a metric recommendation system for Amazon EC2 ASG using time-series and heterogeneous data streams.
 - role: Research Intern
   org: Amazon AGI
+  url: https://www.amazon.science/
+  highlight: true
   location: Bellevue, WA
   start: "2024-06"
   end: "2024-11"
@@ -17,6 +23,8 @@
     - Proposed and developed structural alignment of LLMs for long-form generation.
 - role: Research Intern
   org: Salesforce AI Research
+  url: https://www.salesforceairesearch.com/
+  highlight: true
   location: Palo Alto, CA
   start: "2023-05"
   end: "2023-09"
@@ -25,6 +33,8 @@
     - Built a co-writing system with large language models for scientific writing.
 - role: Research Intern
   org: Grammarly
+  url: https://www.grammarly.com/
+  highlight: true
   location: Remote
   start: "2022-04"
   end: "2022-07"
@@ -33,6 +43,8 @@
     - Trained span-based text-revision models with data augmentation.
 - role: ML Researcher
   org: Naver Labs Europe
+  url: https://europe.naverlabs.com/
+  highlight: true
   location: Meylan, France
   start: "2020-10"
   end: "2022-02"
@@ -41,6 +53,9 @@
     - Conducted cross-lingual discourse analysis for document-level NMT.
 - role: ML Researcher
   org: Papago, Naver Corp.
+  short: Papago (NAVER)
+  url: https://papago.naver.com/
+  highlight: true
   location: Seongnam, Korea
   start: "2017-03"
   end: "2020-09"
@@ -59,6 +74,7 @@
     - "Developed a healthcare app that recommends Pokémon Go events by forecasting users' physical activity patterns using recurrent neural network."
 - role: Research Intern
   org: Naver Labs Corp.
+  url: https://www.naverlabs.com/
   location: Seongnam, Korea
   start: "2016-09"
   end: "2016-11"

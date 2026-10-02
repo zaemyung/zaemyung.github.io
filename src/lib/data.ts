@@ -88,6 +88,45 @@ export interface Profile {
   pillars: Pillar[];
   description: string;
 }
+/** One position in experience.yml (newest first). */
+export interface Experience {
+  role: string;
+  org: string;
+  /** Chip label when `org` is too long. */
+  short?: string;
+  /** Links the organisation name. */
+  url?: string;
+  /** Show as a sidebar chip: under Affiliations while current, under Previously once ended. */
+  highlight?: boolean;
+  location: string;
+  start: string;
+  end: string | null;
+  /** IANA zone: adds a live clock to the sidebar while the position is current. */
+  tz?: string;
+  bullets?: string[];
+}
+/** One degree in education.yml. */
+export interface Education {
+  degree: string;
+  school: string;
+  url?: string;
+  location: string;
+  start: string;
+  end: string;
+  expected: boolean;
+  thesis?: string | null;
+  advisor?: string | null;
+  notes?: string[];
+}
+export interface Award {
+  year: number;
+  title: string;
+  org: string;
+}
+export interface ServiceYear {
+  year: number;
+  items: string[];
+}
 export interface NewsItem {
   date: string;
   html: string;

@@ -1,27 +1,12 @@
 ---
 import Icon from "./Icon.astro";
 import NewsList from "./NewsList.astro";
-import { loadYaml, formatYm, type Profile, type NewsItem } from "../lib/data";
+import { loadYaml, formatYm, type Profile, type NewsItem, type Experience, type Education } from "../lib/data";
 
 const profile = loadYaml<Profile>("profile.yml");
 const news = loadYaml<NewsItem[]>("news.yml");
-interface Exp {
-  role: string;
-  org: string;
-  location: string;
-  start: string;
-  end: string | null;
-  tz?: string;
-}
-interface Edu {
-  degree: string;
-  school: string;
-  start: string;
-  end: string;
-  expected: boolean;
-}
-const exp = loadYaml<Exp[]>("experience.yml");
-const edu = loadYaml<Edu[]>("education.yml");
+const exp = loadYaml<Experience[]>("experience.yml");
+const edu = loadYaml<Education[]>("education.yml");
 const today = new Date().toISOString().slice(0, 7);
 const isCurrent = (start: string, end: string | null) => start <= today && (!end || end >= today);
 const currentExp = exp.filter((e) => isCurrent(e.start, e.end));
@@ -30,17 +15,37 @@ const now = [
     .filter((d) => d.expected || isCurrent(d.start, d.end))
     .map((d) => ({
       role: "Ph.D. candidate",
-      where: d.school.replace(/\s*Twin Cities$/, ""),
+      org: d.school.replace(/\s*Twin Cities$/, ""),
+      url: d.url,
+      place: null as string | null,
       when: `${formatYm(d.start)} – ${formatYm(d.end)}${d.expected ? " (expected)" : ""}`,
       start: d.start,
     })),
   ...currentExp.map((e) => ({
     role: e.role,
-    where: `${e.org}, ${e.location}`,
+    org: e.org,
+    url: e.url,
+    place: e.location as string | null,
     when: `${formatYm(e.start)} – ${formatYm(e.end)}`,
     start: e.start,
   })),
 ];
+// Positions flagged `highlight`: current ones join the Affiliations chips; ended ones form the Previously row
+// (newest first, one chip per organisation).
+const chip = (e: Experience) => ({
+  label: e.short ?? e.org,
+  href: e.url,
+  title: `${e.role}, ${formatYm(e.start)} – ${formatYm(e.end)}`,
+});
+const affiliations = [
+  ...profile.affiliations.map((a) => ({ label: a.label, href: a.href ?? undefined, title: undefined })),
+  ...currentExp.filter((e) => e.highlight).map(chip),
+];
+const previously: ReturnType<typeof chip>[] = [];
+for (const e of exp
+  .filter((e) => e.highlight && !isCurrent(e.start, e.end))
+  .sort((a, b) => (a.start < b.start ? 1 : -1)))
+  if (!previously.some((p) => p.label === (e.short ?? e.org))) previously.push(chip(e));
 // The most recently started position gets the live (pulsing) dot.
 const latest = now.reduce((m, n) => (n.start > m ? n.start : m), "");
 // Live clocks: home first, then any current position in another time zone.
@@ -88,10 +93,18 @@ for (const e of currentExp) if (e.tz && !clocks.has(e.tz)) clocks.set(e.tz, city
         <div class="label">Now</div>
         <ul class="now">
           {now.map((n) => (
-            <li title={`${n.role} at ${n.where}`}>
+            <li title={`${n.role} at ${n.org}${n.place ? `, ${n.place}` : ""}`}>
               <span class:list={["dot", { live: n.start === latest }]} aria-hidden="true" />
               <div>
-                <b>{n.role}</b> at {n.where}
+                <b>{n.role}</b> at{" "}
+                {n.url ? (
+                  <a href={n.url} target="_blank" rel="noopener">
+                    {n.org}
+                  </a>
+                ) : (
+                  n.org
+                )}
+                {n.place && `, ${n.place}`}
                 <span class="when">{n.when}</span>
               </div>
             </li>
@@ -115,20 +128,48 @@ for (const e of currentExp) if (e.tz && !clocks.has(e.tz)) clocks.set(e.tz, city
     <div class="label">Affiliations</div>
     <div class="pills">
       {
-        profile.affiliations.map((a) =>
+        affiliations.map((a) =>
           a.href ? (
-            <a class="chip" href={a.href} target="_blank" rel="noopener">
+            <a class="chip" href={a.href} title={a.title} target="_blank" rel="noopener">
               {a.label}
             </a>
           ) : (
-            <span class="chip">{a.label}</span>
+            <span class="chip" title={a.title}>
+              {a.label}
+            </span>
           ),
         )
       }
     </div>
   </div>
 
-  <div class="side-block rise" style="--i:3">
+  {
+    previously.length > 0 && (
+      <div class="side-block rise" style="--i:3">
+        <div class="label">
+          Previously{" "}
+          <a class="more" href="/about/#experience">
+            all <span class="arr">→</span>
+          </a>
+        </div>
+        <div class="pills">
+          {previously.map((p) =>
+            p.href ? (
+              <a class="chip" href={p.href} title={p.title} target="_blank" rel="noopener">
+                {p.label}
+              </a>
+            ) : (
+              <span class="chip" title={p.title}>
+                {p.label}
+              </span>
+            ),
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  <div class="side-block rise" style="--i:4">
     <div class="label">
       News <a class="more" href="/news/">all <span class="arr">→</span></a>
     </div>

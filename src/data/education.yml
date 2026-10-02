@@ -1,6 +1,7 @@
-# Education (from My_CV.pdf). start/end are YYYY-MM strings.
+# Education (from My_CV.pdf). start/end are YYYY-MM strings; `url` (optional) links the school in the sidebar.
 - degree: PhD in Computer Science
   school: University of Minnesota Twin Cities
+  url: https://twin-cities.umn.edu/
   location: Minneapolis, MN
   start: "2022-09"
   end: "2027-03"
@@ -26,5 +27,5 @@
   thesis: null
   advisor: null
   notes:
-    - 'Group Project: Intention Recognition in Ambient Homes'
-    - 'Individual Project: Computing Fictitious Plays in Graph-Based Games'
+    - "Group Project: Intention Recognition in Ambient Homes"
+    - "Individual Project: Computing Fictitious Plays in Graph-Based Games"

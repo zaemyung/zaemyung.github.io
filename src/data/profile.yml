@@ -60,8 +60,11 @@ lead:
     coherent long-form generation, metacognitive feedback inside reinforcement learning to stabilize optimization, and
     test-time metacognition that lets agents recursively improve themselves.
   - >-
-    Before the Ph.D. I worked on machine translation at NAVER LABS Europe and Papago, and I have interned at Amazon AWS,
-    Amazon AGI, Salesforce AI Research, and Grammarly.
+    Before the Ph.D. I worked on machine translation at <a href="https://europe.naverlabs.com/">NAVER LABS Europe</a>
+    and <a href="https://papago.naver.com/">Papago</a>, and I have interned at
+    <a href="https://aws.amazon.com/">Amazon AWS</a>, <a href="https://www.amazon.science/">Amazon AGI</a>,
+    <a href="https://www.salesforceairesearch.com/">Salesforce AI Research</a>, and
+    <a href="https://www.grammarly.com/">Grammarly</a>.
 
 cta:
   - label: Publications

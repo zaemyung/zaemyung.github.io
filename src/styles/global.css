@@ -213,6 +213,7 @@ button {
 }
 /* Drawn underlines (lead, news, prose): a faint line at rest; the accent line draws in from the left on hover */
 .hero .lead a,
+.now a,
 .news .body a,
 .prose a {
   text-decoration: none;
@@ -230,6 +231,7 @@ button {
   box-decoration-break: clone;
 }
 .hero .lead a:hover,
+.now a:hover,
 .news .body a:hover,
 .prose a:hover {
   text-decoration: none;
@@ -484,6 +486,12 @@ main {
   margin: 8px 0 0;
   color: var(--muted);
   max-width: 64ch;
+}
+.page-head .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
 }
 .section {
   margin-top: 48px;
@@ -1234,6 +1242,9 @@ a.chip:hover {
 .now b {
   color: var(--ink);
   font-weight: 600;
+}
+.now a {
+  color: var(--ink);
 }
 .now .when {
   display: block;
