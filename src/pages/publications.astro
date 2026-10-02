@@ -1,13 +1,20 @@
 ---
 import Base from "../layouts/Base.astro";
 import PubList from "../components/PubList.astro";
+import Stats from "../components/Stats.astro";
 import { allPapers } from "../lib/data";
 const papers = allPapers();
+const years = papers.map((p) => p.year);
+const span = `${Math.min(...years)} – ${Math.max(...years)}`;
 ---
 
-<Base title="Publications" description="Publications by Zae Myung Kim: peer-reviewed papers, preprints, and a patent.">
+<Base
+  progress
+  title="Publications"
+  description="Publications by Zae Myung Kim: peer-reviewed papers, preprints, and a patent."
+>
   <header class="page-head">
-    <div class="eyebrow">{papers.length} entries</div>
+    <div class="eyebrow">{span}</div>
     <h1>Publications</h1>
     <p class="sub">
       Peer-reviewed papers, preprints, and a patent, grouped by year or by research topic. Asterisks mark equal
@@ -17,6 +24,7 @@ const papers = allPapers();
         rel="noopener">Google Scholar</a
       >, or browse the <a href="/gallery/">research gallery</a>.
     </p>
+    <Stats />
   </header>
   <PubList papers={papers} />
 </Base>

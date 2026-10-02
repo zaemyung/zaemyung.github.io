@@ -1,15 +1,22 @@
 ---
 import Icon from "./Icon.astro";
-const year = new Date().getFullYear();
-const updated = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+const built = new Date();
+const year = built.getFullYear();
+const updated = built.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 ---
 
 <footer class="site-footer">
   <div class="container">
     <span>© {year} Zae Myung Kim</span>
-    <span>Last updated {updated}</span>
+    <span>
+      Last updated <time id="site-updated" datetime={built.toISOString()} title={updated}>{updated}</time>
+    </span>
     <span class="spacer"></span>
     <a href="https://github.com/zaemyung/zaemyung.github.io" target="_blank" rel="noopener">Source</a>
     <a href="#top" class="icon-btn" aria-label="Back to top" title="Back to top"><Icon name="arrow-up" /></a>
   </div>
 </footer>
+
+<script>
+  import "../scripts/footer";
+</script>

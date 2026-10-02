@@ -53,6 +53,14 @@ export interface Pillar {
   heading: string;
   blurb: string;
   papers: { label: string; match: string }[];
+  /** Small illustration drawn above the heading (see PillarArt.astro). */
+  art?: "tree" | "layers" | "edits";
+}
+/** The thesis line: `before` + one of `phrases` (the first is the static default; the rest rotate) + `after`. */
+export interface Thesis {
+  before: string;
+  phrases: string[];
+  after?: string;
 }
 export interface Profile {
   name: string;
@@ -71,8 +79,11 @@ export interface Profile {
   socials: { label: string; href: string; icon: string }[];
   affiliations: { label: string; href?: string | null }[];
   role_line: string;
-  thesis: string;
+  thesis: Thesis;
   lead: string[];
+  /** IANA time zone and short place name for the live clock in the sidebar. */
+  tz?: string;
+  clock_label?: string;
   cta: { label: string; href: string; primary?: boolean; external?: boolean; icon?: string }[];
   pillars: Pillar[];
   description: string;
@@ -158,3 +169,21 @@ export function formatMy(iso: string): string {
   return m ? `${MONTHS[m - 1]} ${y}` : String(y);
 }
 
+/* ---------- Stats ---------- */
+export interface PaperStats {
+  total: number;
+  /** Papers led by the owner, counting equal-contribution (starred) lead authorship. */
+  firstAuthor: number;
+  /** Distinct publication venues, excluding preprint servers and patents. */
+  venues: number;
+}
+export function paperStats(papers: Paper[] = allPapers()): PaperStats {
+  const strip = (a: string) => a.replace(/\*$/, "").trim();
+  const firstAuthor = papers.filter((p) => {
+    const lead = p.authors[0] ?? "";
+    const leads = lead.endsWith("*") ? p.authors.filter((a) => a.endsWith("*")) : [lead];
+    return leads.map(strip).includes(OWN_NAME);
+  }).length;
+  const venues = new Set(papers.filter((p) => p.type !== "preprint" && p.type !== "patent").map((p) => p.venue)).size;
+  return { total: papers.length, firstAuthor, venues };
+}

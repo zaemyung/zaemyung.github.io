@@ -1,4 +1,5 @@
 ---
+import PillarArt from "./PillarArt.astro";
 import { loadYaml, allPapers, findPaper, type Profile } from "../lib/data";
 const p = loadYaml<Profile>("profile.yml");
 const papers = allPapers();
@@ -8,20 +9,28 @@ const topicOf: Record<string, string> = {
   Collaboration: "collaboration",
   Multilingual: "multilingual",
 };
+// The hero's .rise cascade uses indexes 0 … 3 + lead paragraphs (name, role, thesis, leads, buttons).
+const base = 4 + p.lead.length;
 ---
 
 <section class="pillars">
-  <h2>Current research <em>focus</em></h2>
+  <h2 class="rise" style={`--i:${base}`}>Current research <em>focus</em></h2>
   <div class="pillar-grid">
     {
-      p.pillars.map((pl) => {
+      p.pillars.map((pl, idx) => {
         const t = topicOf[pl.tag] ?? "others";
         return (
-          <article class="pillar" data-topic={t} style="--pillar-color: var(--tc)">
+          <article
+            class="pillar rise"
+            data-topic={t}
+            data-tilt
+            style={`--pillar-color: var(--tc); --i:${base + 1 + idx}`}
+          >
             <div class="pillar-top">
               <span class="pillar-num">{pl.num}</span>
               <span class="pillar-tag">{pl.tag}</span>
             </div>
+            <PillarArt kind={pl.art} />
             <h3>{pl.heading}</h3>
             <p>{pl.blurb}</p>
             <div class="chips">
@@ -41,3 +50,7 @@ const topicOf: Record<string, string> = {
     }
   </div>
 </section>
+
+<script>
+  import "../scripts/pillars";
+</script>

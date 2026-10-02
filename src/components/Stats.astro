@@ -1,0 +1,27 @@
+---
+/* By the numbers: three figures computed from papers.json; scripts/stats.ts counts them up on first view. */
+import { paperStats } from "../lib/data";
+const stats = paperStats();
+const counts = [
+  { label: "Publications", n: stats.total },
+  { label: "First-author", n: stats.firstAuthor },
+  { label: "Venues", n: stats.venues },
+];
+---
+
+<ul class="stats" aria-label="By the numbers">
+  {
+    counts.map((c) => (
+      <li>
+        <b class="count" data-n={c.n}>
+          {c.n}
+        </b>
+        <span>{c.label}</span>
+      </li>
+    ))
+  }
+</ul>
+
+<script>
+  import "../scripts/stats";
+</script>

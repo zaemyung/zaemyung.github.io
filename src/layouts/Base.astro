@@ -8,9 +8,11 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  /** Show a thin reading-progress bar under the nav (long, scroll-heavy pages). */
+  progress?: boolean;
 }
 const profile = loadYaml<Profile>("profile.yml");
-const { title, description = profile.description, image = "/img/prof_pic.jpg" } = Astro.props;
+const { title, description = profile.description, image = "/img/prof_pic.jpg", progress = false } = Astro.props;
 const fullTitle = title ? `${title} · ${profile.name}` : profile.name;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -56,11 +58,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body id="top">
     <Nav />
+    {progress && <div class="scroll-progress" aria-hidden="true" />}
     <main>
       <div class="container">
         <slot />
       </div>
     </main>
     <Footer />
+    <script>
+      import "../scripts/reveal";
+    </script>
   </body>
 </html>

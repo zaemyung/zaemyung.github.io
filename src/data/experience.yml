@@ -1,7 +1,9 @@
 # Professional employment (from My_CV.pdf, newest first). start/end are YYYY-MM strings; end is null while ongoing.
+# `tz` (optional, IANA name) adds a live clock to the sidebar while the position is current.
 - role: Research Intern
   org: Amazon AWS
   location: Seattle, WA
+  tz: America/Los_Angeles
   start: "2026-09"
   end: "2026-12"
   bullets:
@@ -44,7 +46,7 @@
   end: "2020-09"
   bullets:
     - Developed machine translation models for Thai–Korean and German–Korean pairs.
-    - 'Implemented tools for NMT: sentence-segmenter, corpus pre-processor, aligner, and crawler.'
+    - "Implemented tools for NMT: sentence-segmenter, corpus pre-processor, aligner, and crawler."
     - Created website-translation service using NMT + heuristic attention.
     - Ranked 1st (doc-level) and 4th (sent-level) at WMT20 quality estimation shared task.
 - role: Invited Researcher
@@ -68,8 +70,8 @@
   start: "2014-04"
   end: "2016-07"
   bullets:
-    - '[1st Year] Intent classification for travel-service personalization.'
-    - '[2nd Year] Modeled long-term activeness using RNNs for wellness prediction.'
+    - "[1st Year] Intent classification for travel-service personalization."
+    - "[2nd Year] Modeled long-term activeness using RNNs for wellness prediction."
 - role: Research Intern
   org: KEAI Lab, KAIST
   location: Daejeon, Korea

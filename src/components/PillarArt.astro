@@ -1,0 +1,68 @@
+---
+/* Small decorative illustrations for the research-focus cards. All three draw in the card's topic color (--tc).
+   `layers` is animated by scripts/pillars.ts: layers stack from the base outwards, then the stack resets. */
+interface Props {
+  kind?: "tree" | "layers" | "edits";
+}
+const { kind } = Astro.props;
+---
+
+{
+  kind === "tree" && (
+    <svg class="pillar-art" data-art="tree" viewBox="0 0 160 56" aria-hidden="true">
+      <g fill="none" stroke="var(--tc)" stroke-width="1.2">
+        <path d="M80 13v6M40 19h80M40 19v7M80 19v7M120 19v7" />
+        <path d="M40 35v5M24 40h32M24 40v6M56 40v6M80 35v11M120 35v5M104 40h32M104 40v6M136 40v6" />
+      </g>
+      <g fill="color-mix(in srgb, var(--tc) 55%, var(--card))" stroke="var(--tc)" stroke-width="1.2">
+        <rect x="66" y="4" width="28" height="9" rx="3" />
+        <rect x="28" y="26" width="24" height="9" rx="3" />
+        <rect x="68" y="26" width="24" height="9" rx="3" />
+        <rect x="108" y="26" width="24" height="9" rx="3" />
+        <rect x="14" y="46" width="20" height="8" rx="3" />
+        <rect x="46" y="46" width="20" height="8" rx="3" />
+        <rect x="70" y="46" width="20" height="8" rx="3" />
+        <rect x="94" y="46" width="20" height="8" rx="3" />
+        <rect x="126" y="46" width="20" height="8" rx="3" />
+      </g>
+    </svg>
+  )
+}
+{
+  kind === "layers" && (
+    <svg class="pillar-art" data-art="layers" viewBox="0 0 160 56" aria-hidden="true">
+      <g class="layer" data-level="3">
+        <rect x="4" y="3" width="152" height="50" rx="9" />
+      </g>
+      <g class="layer" data-level="2">
+        <rect x="24" y="11" width="112" height="34" rx="7" />
+      </g>
+      <g class="layer" data-level="1">
+        <rect x="44" y="19" width="72" height="18" rx="5" />
+      </g>
+      <g class="layer base" data-level="0">
+        <rect x="60" y="24" width="40" height="8" rx="4" />
+      </g>
+      <path class="trace" d="M80 32v21" />
+      <text class="omega" x="140" y="47">
+        Ω
+      </text>
+    </svg>
+  )
+}
+{
+  kind === "edits" && (
+    <svg class="pillar-art" data-art="edits" viewBox="0 0 160 56" aria-hidden="true">
+      <g fill="var(--line-strong)">
+        <rect x="4" y="8" width="118" height="6" rx="3" />
+        <rect x="4" y="25" width="52" height="6" rx="3" />
+        <rect x="4" y="42" width="96" height="6" rx="3" />
+      </g>
+      <rect x="60" y="25" width="34" height="6" rx="3" fill="var(--line)" />
+      <path d="M60 28h34" stroke="var(--accent)" stroke-width="1.4" />
+      <rect x="98" y="25" width="46" height="6" rx="3" fill="var(--tc)" />
+      <path d="M126 4v14" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round" />
+      <rect x="146" y="23" width="3" height="10" rx="1.5" fill="var(--primary)" />
+    </svg>
+  )
+}

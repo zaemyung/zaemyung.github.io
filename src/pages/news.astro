@@ -5,7 +5,7 @@ import { loadYaml, type NewsItem } from "../lib/data";
 const news = loadYaml<NewsItem[]>("news.yml");
 ---
 
-<Base title="News" description="News and announcements from Zae Myung Kim.">
+<Base progress title="News" description="News and announcements from Zae Myung Kim.">
   <header class="page-head">
     <div class="eyebrow">{news.length} items</div>
     <h1>News</h1>

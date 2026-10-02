@@ -2,14 +2,23 @@
 import Icon from "./Icon.astro";
 import { loadYaml, type Profile } from "../lib/data";
 const p = loadYaml<Profile>("profile.yml");
+const phrases = p.thesis.phrases;
+// Entrance order for the .rise cascade; Pillars.astro continues the count after the last hero element.
+let order = 0;
+const next = () => `--i:${order++}`;
 ---
 
 <section class="hero">
-  <h1 class="name">{p.name}</h1>
-  <p class="role">{p.role_line}</p>
-  <p class="thesis" set:html={p.thesis} />
-  {p.lead.map((para) => <p class="lead" set:html={para} />)}
-  <div class="cta">
+  <canvas class="hero-graph" aria-hidden="true"></canvas>
+  <h1 class="name rise" style={next()}>{p.name}</h1>
+  <p class="role rise" style={next()}><span class="scramble" data-text={p.role_line}>{p.role_line}</span></p>
+  <p class="thesis rise" style={next()}>
+    {`${p.thesis.before} `}<span class="rotator" data-phrases={JSON.stringify(phrases)}
+      ><span class="phrase" set:html={phrases[0]} /></span
+    >{p.thesis.after ?? ""}
+  </p>
+  {p.lead.map((para) => <p class="lead rise" style={next()} set:html={para} />)}
+  <div class="cta rise" style={next()}>
     {
       p.cta.map((c) => (
         <a
@@ -25,3 +34,7 @@ const p = loadYaml<Profile>("profile.yml");
     }
   </div>
 </section>
+
+<script>
+  import "../scripts/hero";
+</script>

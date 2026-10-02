@@ -11,6 +11,7 @@ interface Exp {
   location: string;
   start: string;
   end: string | null;
+  tz?: string;
 }
 interface Edu {
   degree: string;
@@ -23,6 +24,7 @@ const exp = loadYaml<Exp[]>("experience.yml");
 const edu = loadYaml<Edu[]>("education.yml");
 const today = new Date().toISOString().slice(0, 7);
 const isCurrent = (start: string, end: string | null) => start <= today && (!end || end >= today);
+const currentExp = exp.filter((e) => isCurrent(e.start, e.end));
 const now = [
   ...edu
     .filter((d) => d.expected || isCurrent(d.start, d.end))
@@ -30,16 +32,29 @@ const now = [
       role: "Ph.D. candidate",
       where: d.school.replace(/\s*Twin Cities$/, ""),
       when: `${formatYm(d.start)} – ${formatYm(d.end)}${d.expected ? " (expected)" : ""}`,
+      start: d.start,
     })),
-  ...exp
-    .filter((e) => isCurrent(e.start, e.end))
-    .map((e) => ({ role: e.role, where: `${e.org}, ${e.location}`, when: `${formatYm(e.start)} – ${formatYm(e.end)}` })),
+  ...currentExp.map((e) => ({
+    role: e.role,
+    where: `${e.org}, ${e.location}`,
+    when: `${formatYm(e.start)} – ${formatYm(e.end)}`,
+    start: e.start,
+  })),
 ];
+// The most recently started position gets the live (pulsing) dot.
+const latest = now.reduce((m, n) => (n.start > m ? n.start : m), "");
+// Live clocks: home first, then any current position in another time zone.
+const city = (s: string) => s.split(",")[0]!.trim();
+const clocks = new Map<string, string>();
+if (profile.tz) clocks.set(profile.tz, profile.clock_label ?? city(profile.location));
+for (const e of currentExp) if (e.tz && !clocks.has(e.tz)) clocks.set(e.tz, city(e.location));
 ---
 
 <aside class="sidebar">
-  <div class="identity">
-    <img class="photo" src={profile.photo} alt={profile.name} width="168" height="168" />
+  <div class="identity rise" style="--i:0">
+    <a class="portrait" href="/gallery/" title="Research gallery" aria-label="Open the research gallery">
+      <img class="photo" src={profile.photo} alt={profile.name} width="168" height="168" />
+    </a>
     <h2>{profile.name}</h2>
     {profile.name_native && <div class="native">{profile.name_native}</div>}
     <div class="lines">
@@ -69,21 +84,34 @@ const now = [
 
   {
     now.length > 0 && (
-      <div class="side-block">
+      <div class="side-block rise" style="--i:1">
         <div class="label">Now</div>
         <ul class="now">
           {now.map((n) => (
             <li title={`${n.role} at ${n.where}`}>
-              <b>{n.role}</b> at {n.where}
-              <span class="when">{n.when}</span>
+              <span class:list={["dot", { live: n.start === latest }]} aria-hidden="true" />
+              <div>
+                <b>{n.role}</b> at {n.where}
+                <span class="when">{n.when}</span>
+              </div>
             </li>
           ))}
         </ul>
+        {clocks.size > 0 && (
+          <div class="clocks" hidden>
+            {[...clocks].map(([tz, label]) => (
+              <span>
+                {label}
+                <time data-tz={tz} />
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     )
   }
 
-  <div class="side-block">
+  <div class="side-block rise" style="--i:2">
     <div class="label">Affiliations</div>
     <div class="pills">
       {
@@ -100,8 +128,14 @@ const now = [
     </div>
   </div>
 
-  <div class="side-block">
-    <div class="label">News <a class="more" href="/news/">all →</a></div>
+  <div class="side-block rise" style="--i:3">
+    <div class="label">
+      News <a class="more" href="/news/">all <span class="arr">→</span></a>
+    </div>
     <NewsList items={news} limit={3} />
   </div>
 </aside>
+
+<script>
+  import "../scripts/sidebar";
+</script>

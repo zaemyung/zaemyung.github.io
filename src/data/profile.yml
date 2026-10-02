@@ -4,6 +4,8 @@ title: Ph.D. Candidate
 department: Computer Science & Engineering
 affiliation: University of Minnesota Twin Cities
 location: Minneapolis, MN
+tz: America/Chicago # live clock in the sidebar; a current position with its own `tz` in experience.yml adds a second clock
+clock_label: Minneapolis
 email: kim01756@umn.edu
 photo: /img/prof_pic.jpg
 cv: /pdf/My_CV.pdf
@@ -40,7 +42,16 @@ affiliations:
     href: https://github.com/zaemyung/Seeking-SOTA/
 
 role_line: Linguistic structure · metacognitive self-improvement · human-AI collaboration
-thesis: I teach language models to write with <em>structure</em>, then to judge and <em>recursively improve</em> their own reasoning.
+# The thesis line reads `before` + one phrase + `after`. The first phrase is the static default (no JS, reduced motion,
+# search engines); on the home page the slot rotates through all of them, one per research pillar.
+thesis:
+  before: I teach language models to
+  phrases:
+    - write with <em>structure</em>
+    - judge their own <em>reasoning</em>
+    - <em>recursively improve</em> themselves
+    - work <em>alongside people</em>
+  after: "."
 lead:
   - >-
     I am a Ph.D. candidate in the <a href="https://minnesotanlp.github.io/">Minnesota NLP</a> group at the
@@ -70,8 +81,10 @@ cta:
     icon: scholar
 
 pillars:
+  # `art` picks the small illustration above each heading: tree (discourse tree), layers (Meta^n, animated), edits.
   - num: "01"
     tag: Structure
+    art: tree
     heading: Give language models a sense of discourse.
     blurb: >-
       Discourse-level structure as both a training signal and an analysis lens: structural alignment for coherent
@@ -83,6 +96,7 @@ pillars:
       - { label: Cross-lingual Discourse, match: "Visualizing Cross" }
   - num: "02"
     tag: Metacognition
+    art: layers
     heading: Let models judge, and improve, themselves.
     blurb: >-
       Metacognitive feedback inside the training loop: evolving reward models, evaluators audited for cognitive bias,
@@ -93,6 +107,7 @@ pillars:
       - { label: CoBBLEr, match: "Cognitive Biases" }
   - num: "03"
     tag: Collaboration
+    art: edits
     heading: Build AI that writes and works alongside people.
     blurb: >-
       Interactive revision systems, sensemaking scaffolds for researchers, and benchmarks that probe how agents
