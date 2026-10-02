@@ -54,17 +54,10 @@ function initRotator(): void {
   })();
 }
 
-/* ---- Role line: resolves from scrambled glyphs, once per session ---- */
+/* ---- Role line: resolves from scrambled glyphs on every load of the home page ---- */
 function initScramble(): void {
   const el = document.querySelector<HTMLElement>(".hero .scramble");
   if (!el || reduced) return;
-  const KEY = "role-resolved";
-  try {
-    if (sessionStorage.getItem(KEY)) return;
-    sessionStorage.setItem(KEY, "1");
-  } catch {
-    /* storage unavailable: still run once */
-  }
   const text = el.dataset.text ?? el.textContent ?? "";
   const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const fixed = (ch: string) => !/[A-Za-z]/.test(ch); // spaces, separators and hyphens never scramble
