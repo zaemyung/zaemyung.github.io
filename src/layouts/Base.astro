@@ -55,6 +55,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         } catch (e) {}
       })();
     </script>
+    <!-- GoatCounter analytics (cookieless; count.js skips localhost by itself) -->
+    <script is:inline data-goatcounter="https://zaemyung.goatcounter.com/count" async src="https://gc.zgo.at/count.js"
+    ></script>
   </head>
   <body id="top">
     <Nav />
