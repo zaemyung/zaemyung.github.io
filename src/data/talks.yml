@@ -1,4 +1,9 @@
 # Invited talks (from My_CV.pdf, newest first). date is YYYY-MM-DD.
+- date: "2026-11-04"
+  kind: Seminar Talk
+  host: Social Reinforcement Learning Lab, University of Washington
+  title: 'Metacognition for Self-Improving Agents: Who Judges the Judge, Who Improves the Improver'
+  description: 'Talk titled, Metacognition for Self-Improving Agents: Who Judges the Judge, Who Improves the Improver.'
 - date: "2026-09-21"
   kind: Seminar Talk
   host: Dept. of Artificial Intelligence, Sungkyunkwan University
